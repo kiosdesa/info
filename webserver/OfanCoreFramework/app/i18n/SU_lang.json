@@ -1,0 +1,340 @@
+{
+	"lang":
+	{
+		"flag_id":"su",
+		"locale":"id_ID",
+		"currency":
+		{
+			"symbol":"Rp ",
+			"id":"IDR",
+			"curs":[1, 1]
+		}
+	},
+	"login":
+	{
+		"title":"Eusian idéntitas anjeun pikeun meunangkeun kana dewan kontrol",
+		"success":"Hasil disahkeun, anjeun geus asup.",
+		"failed":"Gagal asup, pariksa idéntitas anjeun sarta cobian deui!",
+		"denied":"Gagal asup, data idéntitas anjeun teu didaptarkeun."
+	},
+	"logout":
+	{
+		"title":"Anjeun yakin rék kaluar?",
+		"success":"Kaluar junun akun, anjeun Ninggalkeun.",
+		"failed":"Gagal Kaluar, Meureun Koneksina Goreng atau Anjeun Geus Kaluar!",
+		"denied":"Gagal Kaluar, data idéntitas anjeun teu didaptarkeun."
+	},
+	"register":
+	{
+		"title":"Pendaftaran Pamaké Anyar",
+		"success":"Sukses Nambahkeun Akun, Mariksa Email atanapi Asupkeun kode pikeun verifikasi OTP",
+		"failed":"Gagal Nambahkeun Akun, Meureun Koneksina Goreng Cobaan deui!",
+		"denied":"Gagal Nambahkeun Akun, data idéntitas na tos keluar / dicokot"
+	},
+	"forgot":
+	{
+		"title":"Hilap/Poho Akun",
+		"success":"Peripikasi kode geus dikirim ka surélék anjeun",
+		"failed":"Gagal ngareset akun anjeun, Meureun Koneksina Goreng Cobaan deui!",
+		"denied":"Gagal ngareset akun anjeun, data idéntitas anjeun teu didaptarkeun."
+	},
+	"otp":
+	{
+		"title":"Kode OTP",
+		"message":"Kode OTP kakirim",
+		"success":"Peripikasi kode OTP suksés.",
+		"failed":"Gagal Peripikasi OTP, Meureun Koneksina Goreng Cobaan deui!",
+		"denied":"Gagal Peripikasi OTP, Data idéntitas anjeun teu didaptarkeun."
+	},
+	"activate":
+	{
+		"title":"Aktipasi Akun",
+		"success":"Aktipasi Akun Sukses.",
+		"failed":"Gagal Aktipasi Akun, Meureun Koneksina Goreng Cobaan deui!",
+		"denied":"Gagal Aktipasi Akun, Data idéntitas anjeun teu didaptarkeun."
+	},
+	"error":
+	{
+		"404_message":"Teu Kapanggih",
+		"403_message":"Teu Meunangeun",
+		"500_message":"Kasalahan Mesin Server"
+	},
+	"global":
+	{
+		"success":"Pamundut Anjeun Dicumponan",
+		"failed":"Teu Bisa Muka Pamundut",
+		"denied":"Pamundut Anjeun di Tampik",
+		"forbidden":"Teu Meunangeun Muka",
+		"exist":"Proses batal sabab geus aya!",
+		"inactive":"Mangga ngaktipkeun akun anjeun ti hiji surélék atawa asupkeun kode OTP",
+		"activate":"Akun anjeun geus diaktipkeun",
+		"notif":"Notifikasi geus kakirim!",
+		"form":
+		{
+			"input":"Asupkeun teks",
+			"isset":"Terdapat",
+			"submit":"Kirimkeun",
+			"text":"Teks",
+			"number":"Nomer",
+			"type":"Ketikeun %s didieu..."
+		}
+	},
+	"access":
+	{
+		"success":"Anjeun diwidian",
+		"failed":"Anjeun teu bisa ngalakukeun prosés",
+		"denied":"Dilarang, Anjeun moal tiasa aksés"
+	},
+	"crud":
+	{
+		"create":
+		{
+			"success":"Data anyar disimpen",
+			"exist":"Euleuh, data geus kasimpan dan teu bisa di duplikasi",
+			"failed":"Duh euy, aya nu salah, data tacan disimpen!",
+			"denied":"Anjeun teu boga aksés pikeun nambahkeun data anyar",
+			"isset":"Anjeun poho teu ngasupkeun eusian informasi, cik cobaan deui!"
+		},
+		"read":
+		{
+			"success":"Data kapanggih",
+			"failed":"Teu manggih data",
+			"denied":"Anjeun teu boga aksés pikeun neang data"
+		},
+		"update":
+		{
+			"success":"Sukses Ngarubah!",
+			"failed":"Gagal Ngarubah!",
+			"denied":"Anjeun teu boga aksés pikeun ngarubah data",
+			"isset":"Anjeun poho teu ngasupkeun eusian informasi, cik cobaan deui!"
+		},
+		"delete":
+		{
+			"success":"Sukses Ngahapus!",
+			"failed":"Gagal Ngahapus!",
+			"denied":"Anjeun teu boga aksés pikeun ngahapus data"
+		}
+	},
+	"ecommerce":
+	{
+		"product":
+		{
+			"success":"Prodak anyar kasimpen!",
+			"remove":"Prodak tos dihapus!",
+			"exist":"Euleuh, prodak nu tos kasimpen teu bisa di duplikasi",
+			"failed":"Euleuh, aya nu salah, prodak tacan disimpen!",
+			"denied":"Anjeun teu gaduh akses keur nambah prodak anyar",
+			"isset":"Anjeun poho ngasupkeun informasi prodak, cik cobaan deui!",
+			"form":
+			{
+				"name":"Ngaran Prodak",
+				"fix_price":"Harga Pasaran Prodak",
+				"category":"Kategori Prodak",
+				"description":"Katerangan/Informasi Prodak",
+				"weight_gram":"Beurat Prodak (gram)",
+				"stock":"Stok/Kasadiaan Prodak (iji)",
+				"minimum_order":"Minimal Mun Meuli Prodak",
+				"condition":"Kondisi Prodak (anyar/urut)",
+				"status":"Status Publikasi Prodak"
+			}
+		},
+		"favorite":
+		{
+			"success":"Sukses mikaresep!",
+			"remove":"Anjeun tos teu mikaresep!",
+			"exist":"Euleuh, nu dipikaresep tos aya",
+			"failed":"Euleuh, aya nu salah, batal tacan mikaresep!",
+			"denied":"Anjeun teu gaduh akses keur mikaresep",
+			"isset":"Anjeun poho ngasupkeun informasi keur mikaresep, cik cobaan deui!"
+		},
+		"buy":
+		{
+			"success":"Sukses meser!",
+			"remove":"Anjeun teu jadi meser!",
+			"exist":"Euleuh, nu tos dipeser teu bisa di duplikasi",
+			"failed":"Euleuh, aya nu salah, batal meser!",
+			"denied":"Anjeun teu gaduh akses keur meser",
+			"isset":"Anjeun poho ngasupkeun informasi keur meser, cik cobaan deui!"
+		},
+		"seller":
+		{
+			"success":"Sukses nueunkeun pangaturan penjual!",
+			"remove":"Anjeun tos miceun informasi penjual!",
+			"exist":"Euleuh, informasi penjual tos aya dan teu bisa di duplikasi",
+			"failed":"Euleuh, aya nu salah, batal disimpen!",
+			"denied":"Anjeun teu gaduh akses keur nueunkeun pangaturan penjual",
+			"isset":"Anjeun poho ngasupkeun informasi keur pangaturan, cik cobaan deui!",
+			"notif":
+			{
+				"complaint":"Euleuh, konsumen komplen yeuh, invoice: %1$s, <br>tanggal: %2$s!"
+			},
+			"form":
+			{
+				"slug":"Ngaran Singkatan Kios (contoh: @tokoadasegala)",
+				"name":"Ngaran Kios (contoh: Toko Segala Ada)",
+				"location":"Alamat/Tempat/Lokasi Kios",
+				"contact":"Kontak/Nomor HP Resmi Kios",
+				"description":"Inpormasi dan Katerangan Kios",
+				"note":"Catetan atawa aturan Kios",
+				"district":"Ngaran Kecamatan domisili Kios",
+				"city":"Ngaran Kota domisili Kios",
+				"province":"Provinsi domisili Kios",
+				"postal_code":"Kode POS domisili Kios",
+				"district_code":"Kode Kecamatan Kios",
+				"add_date":"Tanggal dijieuna Kios",
+				"logo":"Logo Avatar keur Identitas Kios",
+				"shipping":"Layanan pengiriman/ekspedisi Kios",
+				"owner_id":"ID Nuboga Kios"
+			}
+		},
+		"subscribe":
+		{
+			"success":"Sukses ngalanggan!",
+			"remove":"Anjeun tos teu ngalanggan!",
+			"exist":"Euleuh, nu tos ngalanggan teu bisa di duplikasi",
+			"failed":"Euleuh, aya nu salah, batal tacan ngalanggan!",
+			"denied":"Anjeun teu gaduh akses keur ngalanggan",
+			"isset":"Anjeun poho ngasupkeun informasi keur ngalanggan, cik cobaan deui!"
+		},
+		"cart":
+		{
+			"success":"Sukses ngasupkeun ka kerinjing!",
+			"remove":"Anjeun tos miceun ti kerinjing!",
+			"exist":"Euleuh, data na kerinjing teu bisa di duplikasi",
+			"failed":"Euleuh, aya nu salah, batal tacan asup kerinjing!",
+			"denied":"Anjeun teu gaduh akses keur ngasupkeun kerinjing",
+			"isset":"Anjeun poho ngasupkeun informasi keur kerinjing, cik cobaan deui!"
+		},
+		"order":
+		{
+			"success":"Sukses ngasupkeun orderan!",
+			"remove":"Anjeun tos miceun ti orderan!",
+			"exist":"Euleuh, data na orderan teu bisa di duplikasi",
+			"failed":"Euleuh, aya nu salah, batal tacan asup orderan na!",
+			"denied":"Anjeun teu gaduh akses keur ngasupkeun orderan",
+			"isset":"Anjeun poho ngasupkeun informasi keur orderan, cik cobaan deui!",
+			"notif":"Aya orderan anyar, total: %1$s, %2$s barang, invoice: %3$s, <br>tanggal: [%4$s]"
+		},
+		"payment":
+		{
+			"message":"Konfirmasi Pambayaran, User: %1$s, Invoice: %2$s, Total: %3$s, Via: %4$s",
+			"success":"Sukses ngabejaan geus mayar!",
+			"exist":"Euleuh, ngabejaan geus mayar beres titadi",
+			"failed":"Euleuh, salah ngabejaan geus mayar, cobaan deui!",
+			"denied":"Anjeun teu gaduh akses keur ngabejaan geus mayar",
+			"isset":"Anjeun poho ngasupkeun informasi keur ngabejaan geus mayar, cobaan deui!",
+			"notif":"Pembayaran geus di transfer, total: %1$s [%2$s]",
+			"confirm":
+			{
+				"manual":"<h6>Cara Ngonpirmasi Pembayaran?</h6><ol><li>Pilih cara konpirmasi</li><li>Siapkeun bukti transfer/bayar tuluy fotokeun</li><li>Kirim</li></ol>",
+				"message":"Sok enggal bayarkeun satacan waktuna beak :D",
+				"warning":"Sesa waktu keur konpirmasi mayar",
+				"attention":"Biaya teu acan ka asup lain-laina (pengiriman/kode unik/admin gerai/dll)"
+			},
+			"method":
+			{
+				"atm":"<ol><li>Buka akun/rekening anjeun di ATM %1$s</li><li>Pilih menu transfer ka rekening %1$s</li><li>Asupkeun nomor rekening kami %2$s</li><li>Asupkeun nominal transfer sarua jeung tagihan</li><li>Sanggeusna struk keluar omat simpen jeung fotokeun keur bukti</li></ol>",
+				"ebanking":"<ol><li>Buka aplikasi %1$s e-banking tuluy asupkeun Kode Akses</li><li>Pilih m-Transfer/e-Transfer tuluy pilih Transfer %1$s Account Virtual</li><li>Asupkeun kode perusahaan %2$s jeung data inpormasi sejen nu kadaptar</li><li>Asupkeun jumlah pembayaran sarua jeung tagihan</li><li>Sanggeusna tewak gambar layar log transfer keur bukti</li></ol>",
+				"merchant":"<ol><li>Dongkapan gerai %1$s nu deukeut</li><li>Tanyakeun ka kasir %1$s keur pembayaran</li><li>Sebutkan kode %2$s (ID transaksi)</li><li>Bikeun duit ka kasir sesuai total tagihan</li><li>Sanggeusna struk keluar omat simpen jeung fotokeun keur bukti</li></ol>"
+			}
+		},
+		"shipping":
+		{
+			"success":"Pesenan geus nyampe",
+			"pending":"Pesenan keur di proses",
+			"process":"Pesenan keur dikirmkeun",
+			"failed":"Pesenan gagal dikirm"
+		}
+	},
+	"email":
+	{
+		"user":
+		{
+			"activate":"<h4>Terimakasih sudah bergabung bersama %1$s</h4><p>Sebelum melakukan aktifitas jual/beli di aplikasi %1$s, silahkan lakukan aktifasi akun anda melalui tautan yang ada di bawah ini:</p><div style='display:inline-block;padding:20px;background:rgb(242,102,63);border-radius:7px;'><a href='%2$s' target='_blank' style='color:#fff;text-decoration:none;'>Klik Disini Untuk Aktifasi</a></div><p><a href='%2$s' target='_blank'>%2$s</a></p>",
+			"reset":"Anda telah melakukan perubahan informasi akun anda seperti merubah password atau merubah nomor telefon, cek kembali aktifitas akun anada",
+			"suspend":"Akun anda kami tangguhkan untuk sementara waktu, jika anda keberatan harap hubungi team kami di nomor yang tertera"
+		},
+		"ecommerce":
+		{
+			"create_kios":"<h4>Anda telah membuat Kios di %1$s</h4><p>Berikut ini adalah informasi mengenai Kios anda:</p><ul><li>Nama Kios: %2$s</li><li>Alamat Kios: %3$s</li><li>Nomor Kontak: %4$s</li></ul>",
+			"order":"<h3>Terimakasih sudah berbelanja di %1$s</h3><p>Berikut ini adalah daftar belanjaan anda:</p><div style='display:inline-block;width:100%;padding:10px;background:#eeefff'>%2$s</div><p>Silahkan lakukan pembayaran sebelum %3$s</p>"
+		}
+	},
+	"whatsapp":
+	{
+		"message_greeting":"Hai? Saya kenal anda dari app bumdesku...",
+		"message_asking":"Hai, saya memiliki pertanyaan untuk anda...",
+		"message_order_confirm":"Hai? Saya ingin melakukan konfirmasi pembayaran, berikut ini saya cantumkan nomor invoice dan bukti transfer..."
+	},
+	"sms":
+	{
+		"message_verifikasi":"%s - Kode Peripikasi Anjeun Nyaeta",
+		"message_login":"%s - Kode Asup Anjeun Nyaeta"
+	},
+	"graph":
+	{
+		"title":"Grapik",
+		"status":"Status",
+		"title_predictive":"Prediksi Populasi Sensus",
+		"title_compare":"Ngabandingkeun Data"
+	},
+	"bool":
+	{
+		"true":"Aktip",
+		"false":"Teu Aktip"
+	},
+	"condition":
+	{
+		"true":"Anyar",
+		"false":"Urut"
+	},
+	"exist":
+	{
+		"true":"Data Ditimukeun",
+		"false":"Datana Euweuh"
+	},
+	"support":
+	{
+		"true":"Didukung",
+		"false":"Teu Didukung"
+	},
+	"priority":
+	{
+		"true":"Wajib",
+		"false":"Opsional"
+	},
+	"time":
+	{
+		"second":"detik",
+		"minute":"menit",
+		"hour":"jam",
+		"day":"poe",
+		"week":"minggu",
+		"month":"bulan",
+		"year":"taun"
+	},
+	"status":
+	{
+		"fresh":"Anyar Pisan",
+		"new":"Pang Anyarna",
+		"early":"Ceh Keneh",
+		"latest":"Geus Kaliwat",
+		"oldest":"Heubeul",
+		"selling":"Keur Jualan",
+		"buying":"Keur Walanja",
+		"collapse":"Kondisi Bangkrut",
+		"rich":"Kaya Raya",
+		"poor":"Kurang Mampu"
+	},
+	"geolocation":
+	{
+		"district":"Kecamatan",
+		"city":"Kota",
+		"province":"Provinsi",
+		"country":"Negara",
+		"zip_code":"Kode Pos",
+		"area":"Kode Area",
+		"longitude":"Garis Bujur",
+		"latitude":"garis Lintang"
+	}
+}
