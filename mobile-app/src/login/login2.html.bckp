@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title title-sm>{{ 'LOGIN_TITLE' | translate }}</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content class="no-scroll" padding-right>
+    <div class="centering-middle" padding>
+      <form (submit)="doLogin()">
+        <ion-list>
+          <ion-item *ngFor="let acF of dataField">
+            <ion-label fixed>{{ acF.label }}</ion-label>
+            <ion-input type="{{ acF.type }}" name="{{ acF.label }}" placeholder="{{ acF.placeholder }}" [(ngModel)]="acF.value"></ion-input>
+          </ion-item>
+          <div padding-left margin-top>
+            <button ion-button color="bluesexy" block>
+              {{ 'LOGIN_BUTTON' | translate }} <ion-icon name="ios-log-in" padding-left></ion-icon>
+            </button>
+          </div>
+        </ion-list>
+      </form>
+    </div>
+  </ion-content>
+  

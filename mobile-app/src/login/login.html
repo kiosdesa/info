@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title title-sm>{{ 'LOGIN_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="no-scroll" padding-right>
+  <div class="centering-middle" padding>
+    <form (submit)="doLogin()">
+      <ion-list>
+        <ion-item>
+          <ion-label fixed>{{ 'EMAIL' | translate }}</ion-label>
+          <ion-input type="email" name="email" placeholder="username@domain" [(ngModel)]="account.email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>
+          <ion-input type="password" name="password" placeholder="password" [(ngModel)]="account.password"></ion-input>
+        </ion-item>
+        <div padding-left margin-top>
+          <button ion-button icon-end color="bluesexy" block>
+            {{ 'LOGIN_BUTTON' | translate }} <ion-icon name="ios-log-in"></ion-icon>
+          </button>
+        </div>
+      </ion-list>
+    </form>
+    <div *ngIf="_activeOTP == true" padding-left>
+      <button (click)="openOTP(account)" ion-button color="secondary" block medium middle>
+        {{ 'OTP_BUTTON' | translate }}
+      </button>
+    </div>
+  </div>
+</ion-content>

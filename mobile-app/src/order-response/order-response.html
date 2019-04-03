@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ 'ORDER_FEEDBACK_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div text-md margin-bottom>
+    <p no-margin no-padding text-smd text-gray>{{ 'ORDER_FEEDBACK_SELLER_MESSAGE' | translate }}</p>
+  </div>
+  <div padding-bottom border-bottom border-light text-center>
+    <div><strong text-graybrow>{{ 'ORDER_FEEDBACK_RATE' | translate | titlecase }}</strong></div>
+    <div margin-top-md>
+      <div *ngFor="let numRate of _elementRateSeller" style="display:inline-block" margin-horizontal-md>
+        <div (click)="ratingSeller(numRate)" text-center cursor-pointer>
+          <ion-icon 
+            [name]="_formFeedback.score[1] == numRate ? (numRate | rateicons) : (numRate | rateicons) + '-outline'" 
+            [color]="_formFeedback.score[1] == numRate ? (numRate | ratecolors) : 'gray'" 
+            text-lg>
+          </ion-icon>
+          <div [class]="_formFeedback.score[1] == numRate ? 'text-' + (numRate | ratecolors) : 'text-gray'">{{ numRate | ratewords }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div margin-vertical text-center>
+    <div margin-bottom-sm><strong text-graybrow>{{ 'ORDER_FEEDBACK_RATE' | translate | titlecase }}</strong></div>
+    <ionic3-star-rating 
+      activeIcon = "ios-star"
+      defaultIcon = "ios-star-outline"
+      activeColor = "#ce8602" 
+      defaultColor = "#7d7676"
+      readonly="false"
+      [rating]="_formFeedback.score[0]">
+    </ionic3-star-rating>
+  </div>
+  <ion-list>
+    <ion-list-header text-wrap>{{ 'ORDER_FEEDBACK_PRODUCT_MESSAGE' | translate }}</ion-list-header>
+    <ion-item no-padding no-margin>
+      <ion-textarea [(ngModel)]="_formFeedback.message" placeholder="Review..." text-dark text-sm textarea-custom-form>
+        {{ _formFeedback.message ? _formFeedback.message : '' }}
+      </ion-textarea>
+    </ion-item>
+    <ion-item>
+      <div text-wrap>
+        <button *ngFor="let msg of _defaultMessage; let i = index;" (click)="defaultMessage(msg.text)" [color]="i > 3 ? 'danger' : 'secondary'" ion-button outline round>
+          {{ msg.text }}
+        </button>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer border-top border-light padding>
+  <button (click)="sendFeedback()" ion-button color="secondary" block>{{ 'ORDER_FEEDBACK_BUTTON' | translate }}</button>
+</ion-footer>
