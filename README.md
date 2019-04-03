@@ -28,5 +28,5 @@
 
 ### Informasi Kontak
 - Owner: (0232) 871502
-- Komisioner: ahmed.dicky@gmail.com
+- Komisioner: [dickyahmed7@gmail.com](dickyahmed7@gmail.com)
 - Konsultan IT: [sofandani@gmail.com](mailto:sofandani@gmail.com)
