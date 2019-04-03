@@ -13,7 +13,7 @@
 - Server Side
   - Engine Porgramming Language: PHP 5++
   - Database Platform: PostgreSQL
-  - Method Language: OOP + CSLM (Controller. Service, Library, Modular)
+  - Method Core Framework: OOP + CSLM (Controller, Service, Library, Modular)
 - Client Side
   - Public Apps
     - Engine Apps Language: TypeScript
