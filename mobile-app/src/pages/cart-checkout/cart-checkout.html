@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-navbar color="oranges">
+    <ion-title>{{ 'CART_ORDER_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content no-padding bg-light>
+  <div style="min-height:80vh">
+    <div *ngIf="_showBlank == false">
+      <div padding bg-white>
+        <button (click)="address()" ion-button [color]="ToAddressUsers !== undefined ? 'secondary' : 'danger'" [attr.icon-end]="ToAddressUsers !== undefined" block>
+          <span *ngIf="!ToAddressUsers">{{ 'USER_ADDRESS_CHOOSE' | translate }}</span>
+          <span *ngIf="ToAddressUsers">{{ 'USER_ADDRESS_CHANGE' | translate }}</span>
+          <ion-icon *ngIf="ToAddressUsers !== undefined" name="ios-checkmark-circle-outline"></ion-icon>
+        </button>
+        <div *ngIf="ToAddressUsers !== undefined">
+          <ion-list no-margin>
+              <ion-item>
+                <div item-left>
+                  <img [src]="_cdnIcon + '/diantarkan.svg'" width="48" class="icon-center-all"/>
+                </div>
+                <div item-inner>
+                  <ion-note>{{ ToAddressUsers.name }}</ion-note>
+                  <p no-margin text-wrap>{{ ToAddressUsers.street }}</p>
+                </div>
+              </ion-item>
+          </ion-list>
+        </div>
+      </div>
+      <div *ngFor="let carts of _dataOrders; let i = index">
+        <ion-list bg-white margin>
+          <ion-list-header no-margin>
+            <span text-graybrown margin-right-sm>{{ 'SELLER_TITLE' | translate }}:</span>
+            <span text-dark>{{ carts.seller_detail.name }}</span>
+            <span *ngIf="carts.seller_detail.premium_shop_type == true" margin-left-sm>
+              <img [src]="_cdnIcon + '/diamond.svg'" width="4%" class="icon-center-all" />
+            </span>
+          </ion-list-header>
+          <ion-item *ngFor="let products of carts.data_product; let ix = index">
+            <div item-left>
+              <img [src]="_cdnProduct + '/' + products.thumb" width="48" />
+            </div>
+            <div item-inner text-left>
+              <div text-left>
+                <div text-sm text-nowrap><strong>{{ products.name }}</strong></div>
+                <div text-sm text-danger text-bold margin-top-sm>
+                  <span>{{ products.fix_price }}</span> 
+                </div>
+                <div text-xs text-gray>
+                  <span>({{ products.quantity }} {{ 'PRODUCT_ITEM_TITLE' | translate }} x {{ products.weight_gram }}gr)</span>
+                </div>
+              </div>
+            </div>
+          </ion-item>
+          <ion-item-divider text-right>
+            <div>
+              <div *ngIf="ChooseShipping[i]" padding-left-sm float-left>
+                <p text-md text-gray no-margin>{{ ChooseShipping[i].shipper_name }} > {{ ChooseShipping[i].shipper_etd }}</p>
+                <ion-note text-sm>(+ {{ ChooseShipping[i].shipper_formatted_price }})</ion-note>
+              </div>
+              <button ion-button float-right [color]="ChooseShipping[i] ? 'secondary' : 'danger'" small [attr.icon-end]="ChooseShipping[i]" (click)="shipping({
+                from:carts.seller_detail.shipping_from_code,
+                to:ToAddressUsers ? ToAddressUsers.code_format : ToAddressUsers,
+                weight:carts.sub_weight_kilogram,
+                shippingname:carts.seller_detail.shipping_names,
+                index:i
+              })">
+                <span *ngIf="!ChooseShipping[i]">{{ 'CART_SHIPPING_TITLE' | translate }}</span>
+                <span *ngIf="ChooseShipping[i]">{{ 'CHANGE_BUTTON' | translate }} {{ 'CART_SHIPPING_TITLE' | translate }}</span>
+                <ion-icon *ngIf="ChooseShipping[i]" name="ios-checkmark-circle-outline"></ion-icon>
+              </button>
+            </div>
+          </ion-item-divider>
+          <ion-item-divider text-right>
+            <div padding-right-sm>
+              <span text-sm>Sub Total: </span>
+              <span *ngIf="!ChooseShipping[i]" text-sm>{{ carts.subtotal_price_format }} </span>
+              <span *ngIf="ChooseShipping[i]" text-sm>
+                {{ _totalPriceFormat }} {{ carts.subtotal_price + ChooseShipping[i].shipper_price | seNum:0 }} 
+              </span>
+              <span text-sm>
+              ({{ _dataOrders[i].sub_quantity }} {{ 'PRODUCT_ITEM_TITLE' | translate }} / {{ carts.sub_weight_kilogram }}kg)
+              </span>
+            </div>
+          </ion-item-divider>
+        </ion-list>
+        <hr *ngIf="_dataOrders.length > 1 && i != (_dataOrders.length - 1)">
+      </div>
+    </div>
+    <div *ngIf="_showBlank == true">
+      <div padding margin text-center>
+        <div margin><img src="assets/icon/kiosdesa-logo-cry.svg" style="width:50%" /></div>
+        <h5 margin-top text-gray>{{ 'CART_EMPTY_TITLE' | translate }}</h5>
+        <p>{{ 'CART_EMPTY_MESSAGE' | translate }}</p>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer *ngIf="_showBlank == false" bg-white border-top border-smoke>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 no-padding-bottom>
+        <div d-block block text-sm text-gray margin-bottom-sm>{{ 'CART_TOTAL_PRICE_TITLE' | translate }}:</div>
+        <div text-danger>
+          <span text-sm *ngIf="_allButtonStatus == true">{{ 'CART_TOTAL_CALCULATE' | translate }}</span>
+          <span text-md *ngIf="_allButtonStatus == false">
+            <span text-md *ngIf="_payButtonStatus == false">-</span>
+            <span text-md *ngIf="_payButtonStatus == true">{{ _totalPriceFormat }} {{ _totalPriceValue | seNum:0 }}</span>
+          </span>
+        </div>
+      </ion-col>
+      <ion-col col-6 no-padding-bottom>
+        <button (click)="choosepayment({page:'CartPayPage'})" ion-button [color]="_payButtonStatus == true ? 'secondary' : 'gray'" [disabled]="_payButtonStatus !== true" icon-start block>
+          <ion-icon name="ios-card"></ion-icon> {{ 'PAY_CHOOSE_BUTTON' | translate }}
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

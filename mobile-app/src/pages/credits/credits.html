@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Info App</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<main>
+	  <div>
+		<p *ngFor="let desc of _dataDescription" text-justify>
+			<span ion-text [innerHtml]="desc" text-justify color="gray"></span>
+		</p>
+	  </div>
+	</main>
+
+	<h5>Version</h5>
+	<ion-list>
+	  <ion-item *ngFor="let v of _dataVersion">
+	  	<p [innerHtml]="v"></p>
+	  </ion-item>
+	</ion-list>
+
+	<h3>Teknologi yang digunakan</h3>
+	<h5>Server</h5>
+	<ion-list>
+	  <ion-item *ngFor="let infosystem of _dataInfoSystem" text-wrap>
+		<p [innerHtml]="infosystem"></p>
+	  </ion-item>
+	</ion-list>
+	<h5>Smartphone/Desktop</h5>
+	<ion-list>
+	  <ion-item *ngFor="let infoapp of _dataInfoApp">
+		<p [innerHtml]="infoapp"></p>
+	  </ion-item>
+	</ion-list>
+
+	<h3>Author</h3>
+	<h5>Pemilik & Penanggung Jawab</h5>
+	<ion-list>
+	  <ion-item *ngFor="let owner of _dataAboutOwner">
+		<p [innerHtml]="owner"></p>
+	  </ion-item>
+	</ion-list>
+	<h5>Project Manager</h5>
+	<ion-list>
+	  <ion-item *ngFor="let pm of _dataAboutPM">
+		<p [innerHtml]="pm"></p>
+	  </ion-item>
+	</ion-list>
+	<h5>Fullstack IT Developer</h5>
+	<ion-list>
+	  <ion-item *ngFor="let creator of _dataAboutCreator">
+		<p [innerHtml]="creator"></p>
+		</ion-item>
+		<ion-item>
+			<h5>Map:</h5>
+			<div><iframe [src]="_dataCreatorMap" style="width:100%;border:0" height="250" frameborder="0" allowfullscreen></iframe>></div>
+		</ion-item>
+	</ion-list>
+	<h5>Pengguna & Controlling</h5>
+	<ion-list>
+	  <ion-item *ngFor="let community of _dataAboutCommunity">
+		<p [innerHtml]="community"></p>
+	  </ion-item>
+	</ion-list>
+</ion-content>

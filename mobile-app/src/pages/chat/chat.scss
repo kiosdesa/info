@@ -1,0 +1,43 @@
+page-menu {
+	ion-split-pane {
+		ion-menu {
+			.menu-inner {
+				ion-header {
+					ion-toolbar {
+						.toolbar-content {
+							ion-title {
+								ion-icon.icon-header-menu {
+								    font-size: 2.4em;
+								    vertical-align: middle;
+								}
+								span.text-header-menu {
+								    display: inline-block;
+								    margin: 0 0 0 10px;
+								    font-size: 1.26rem;
+								    position: relative;
+								}
+							}
+						}
+					}
+				}
+				ion-content {
+					.scroll-content {
+						ion-list {
+							button.item {
+								font-size: 1.4rem;
+						    	padding-left: 16px;
+								ion-icon {
+								    min-height: 2rem;
+								    font-size: 2.1rem;
+								}
+								.item-inner, .item-md .item-input {
+								    margin-left: 16px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

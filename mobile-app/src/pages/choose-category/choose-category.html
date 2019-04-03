@@ -1,0 +1,9 @@
+<ion-list *ngIf="_dataPassing">
+  <ion-list-header bg-light>
+    {{ 'CATEGORY_TITLE' | translate }}
+  </ion-list-header>
+  <button *ngFor="let category of _dataPassing" (click)="choose(category)" ion-item text-smd>
+    {{ category.name }}
+  </button>
+</ion-list>
+<div *ngIf="!_dataPassing" padding>Loading...</div>

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar color="oranges">
+    <ion-title>
+        {{ 'USER_ACCOUNT_EDIT' | translate }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <form *ngIf="userData" (submit)="doUpdate()" padding-right>
+        <ion-list>
+            <ion-item *ngFor="let users of userData; let i = index">
+                <ion-label color="bluesexy" stacked>{{ users.label }}</ion-label>
+                <ion-input *ngIf="users.type == 'text' || users.type == 'email' || users.type == 'number'" type="{{ users.type }}" name="{{ users.field }}" [(ngModel)]="users.value" (ionBlur)="sanitizeInput(users.value, i)"></ion-input>
+                <ion-datetime *ngIf="users.type == 'date'" displayFormat="YYYY-MM-DD" [(ngModel)]="users.value" name="{{ users.field }}"></ion-datetime>
+                <ion-input *ngIf="users.type == 'disable'" type="text" value="{{ users.value }}" disabled="true"></ion-input>
+            </ion-item>
+            <div padding-left margin-top>
+                <button ion-button icon-start color="secondary" block>
+                    <ion-icon name="md-send"></ion-icon> {{ 'CHANGE_BUTTON' | translate }}
+                </button>
+            </div>
+        </ion-list>
+    </form>
+    <div padding-left padding-right>
+        <ion-grid no-padding>
+            <ion-row>
+                <ion-col col-6>
+                    <button ion-button icon-start block (click)="editPassword()" class="forgot" color="light">
+                        <ion-icon name="md-lock"></ion-icon> {{ 'PASSWORD' | translate }}
+                    </button>
+                </ion-col>
+                <ion-col col-6>
+                    <button ion-button icon-start block (click)="doLogout()" class="logout" color="danger">
+                        <ion-icon name="ios-power"></ion-icon> {{ 'LOGOUT' | translate }}
+                    </button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>

@@ -1,0 +1,252 @@
+<ion-header>
+  <ion-navbar [color]="tabSegment == 'buyer' ? 'oranges' : 'secondary'">
+    <ion-title>
+      <span [innerHtml]="tabSegment == 'buyer' ? ('USER_ACCOUNT_MINE' | translate) : ('SHOP_USER_TITLE' | translate)"></span>
+    </ion-title>
+    <ion-buttons *ngIf="tabSegment == 'buyer'" end>
+      <button ion-button (click)="pushPage('AccountPage')" icon-only>
+        <ion-icon name="md-options"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons *ngIf="_showKiosNew == false && tabSegment == 'kios'" end>
+      <button ion-button (click)="pushPage('KioskuEditPage')" icon-only>
+        <ion-icon name="md-briefcase"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content bg-light>
+  <div *ngIf="_showBlank == false">
+    <div [ngSwitch]="tabSegment" class="container-fixed fixed-container-bottom">
+      <div *ngSwitchCase="'buyer'" padding-sm>
+        <ion-card>
+          <ion-item no-margin>
+            <ion-avatar item-start>
+              <img *ngIf="_dataSelf.hasOwnProperty('avatar')" [src]="_dataSelf.avatar" />
+            </ion-avatar>
+            <h2>{{ _dataSelf.real_name }}</h2>
+            <p text-sm text-graybrow>@{{ _dataSelf.user_name }}</p>
+            <div item-right>
+              <div text-sm text-right style="min-width:100px">
+                <img *ngIf="_serverCDN.icon" [src]="_serverCDN.icon + '/wallet.svg'" style="display:inline-block;width:24px;height:24px;top:-2px;" class="icon-center-all" />
+                <strong>{{ 'USER_BALANCE' | translate }}</strong>
+              </div>
+              <div text-sm text-right [class]="_dataSelf.balance > 0 ? 'text-success' : 'text-gray'">
+                {{ _symbolKurs }} <strong [innerHTML]="_dataSelf.balance > 0 ? (_dataSelf.balance | seNum:0) : 0"></strong>
+              </div>
+            </div>
+          </ion-item>
+        </ion-card>
+        <ion-card padding-bottom-md>
+          <ion-list>
+            <ion-list-header no-margin>
+              {{ 'MENUDATA_TITLE' | translate }}
+            </ion-list-header>
+            <button ion-item *ngFor="let menu of menuBuyer" (click)="pushPage(menu.page, menu.data)">
+              <ion-icon [name]="menu.icon" item-left></ion-icon>
+              <div item-inner>{{ menu.title }}</div>
+              <div item-right *ngIf="menu.data">
+                <span *ngIf="menu.data.type == 'badge' && menu.data.value > 0" text-sm>
+                  <ion-badge *ngIf="menu.data.value > 0" color="danger">{{ menu.data.value }}</ion-badge>
+                  <span *ngIf="menu.data.compareValue > 0">
+                    <span text-gray> / </span>
+                    <span text-gray>{{ menu.data.compareValue }}</span>
+                  </span>
+                </span>
+                <span *ngIf="menu.data.type == 'icon'"><ion-icon [name]="menu.data.value"></ion-icon></span>
+              </div>
+            </button>  
+          </ion-list>
+        </ion-card>
+        <ion-card padding-bottom-md *ngIf="_dataFollowed.length > 0">
+          <ion-list>
+            <ion-list-header no-margin>
+            {{ 'USER_FOLLOW_TITLE' | translate }}
+            </ion-list-header>
+            <ion-item *ngFor="let follow of _dataFollowed; let i = index" >
+              <ion-avatar (click)="pushPage('SellerDetailPage', follow)" item-start cursor-pointer>
+                <span *ngIf="follow.premium_shop_type == true" badge-diamond-avatar>
+                  <img [src]="_serverCDN.icon + '/diamond.svg'" class="icon-center-all" />
+                </span> 
+                <img [src]="follow.logo" width="48" />
+              </ion-avatar>
+              <div item-inner text-left>
+                <h6 text-md (click)="pushPage('SellerDetailPage', follow)" cursor-pointer text-wrap>
+                  <span>{{ follow.name }}</span>
+                </h6>
+              </div>
+              <div item-right>
+                <button (click)="followSeller({index:i,id:follow.id,slug:follow.slug})" ion-button [color]="_dataFollowed[i].followed == true ? 'light' : 'bluesexy'" icon-start round small full>
+                  <ion-icon *ngIf="_dataFollowed[i].followed == false" name="ios-add-circle-outline"></ion-icon>
+                  <ion-icon *ngIf="_dataFollowed[i].followed == true" name="ios-checkmark-circle-outline"></ion-icon>
+                  <span *ngIf="_dataFollowed[i].followed == false" margin-left-sm>{{ 'USER_FOLLOW_BUTTON' | translate }}</span>
+                  <span *ngIf="_dataFollowed[i].followed == true" margin-left-sm>{{ 'USER_UNFOLLOW_BUTTON' | translate }}</span>
+                </button>
+              </div>
+            </ion-item>
+          </ion-list>
+        </ion-card>
+      </div>
+      <div *ngSwitchCase="'kios'" padding-sm>
+        <div *ngIf="_showKiosNew == false" padding-sm>
+          <div *ngFor="let kiosk of _dataKios">
+            <ion-list bg-white no-margin>
+              <ion-item>
+                <ion-avatar item-start>
+                  <span *ngIf="kiosk.premium_shop_type == true" badge-diamond-avatar>
+                    <img [src]="_serverCDN.icon + '/diamond.svg'" width="8%" />
+                  </span>
+                  <img *ngIf="kiosk.hasOwnProperty('logo')" [src]="kiosk.logo" />
+                </ion-avatar>
+                <div item-inner text-left *ngIf="_dataKios">
+                  <h2>
+                    <span [class]="kiosk.premium_shop_type == true ? 'text-bluesexy text-underline' : ''">{{ kiosk.name }}</span>
+                  </h2>
+                  <p text-sm text-graybrow>@{{ kiosk.slug }}</p>
+                </div>
+                <div item-right *ngIf="_dataKios">
+                  <div text-sm text-right style="min-width:100px">
+                    <img *ngIf="_serverCDN.icon" [src]="_serverCDN.icon + '/money-cash.svg'" style="display:inline-block;width:24px;height:24px;top:-2px;" class="icon-center-all"/>
+                    <strong>{{ 'INCOME_TITLE' | translate }}</strong>
+                  </div>
+                  <div text-sm text-right [class]="kiosk.income > 0 ? 'text-success' : 'text-gray'">
+                    {{ _symbolKurs }} <strong [innerHTML]="kiosk.income > 0 ? (kiosk.income | seNum:0) : 0"></strong>
+                  </div>
+                </div>
+              </ion-item>
+            </ion-list>
+            <ion-list>
+              <ion-item border-top border-light>
+                <div text-dark text-smd><strong>{{ 'SHOP_USER_INFO_LEVEL' | translate }}</strong></div>
+                <div margin-top>
+                  <div class="table table-left" style="width:48.9%;max-width:49%">
+                    <div text-center>
+                      <ion-icon *ngFor="let iMd of kiosk.level.medal" [name]="kiosk.level.icon.file" [color]="kiosk.level.icon.color" class="icon-center-all" style="zoom:1.2;margin-right:1px"></ion-icon>
+                      <span margin-left-sm text-graybrow text-smd>{{ kiosk.level.name }}</span>
+                    </div>
+                  </div>
+                  <div class="table table-right" style="width:48.9%;max-width:49%">
+                    <div text-center>
+                      <ion-icon name="ios-stats" color="gray" text-lg margin-right-sm class="icon-center-all"></ion-icon>
+                      <strong text-cyan class="icon-center-all">{{ kiosk.level.number }}</strong>
+                    </div>
+                  </div>
+                </div>
+              </ion-item>
+              <ion-item>
+                <div style="clear:both;width:100%;display:inline-block">
+                  <div table table-left table-max-width>
+                    <button (click)="pushPage('SellerDetailPage', {slug:kiosk.slug})" ion-button block outline color="bluesexy">
+                      {{ 'SELLER_SEE_SHOP_TITLE' | translate }}
+                    </button>
+                  </div>
+                  <div table table-right table-max-width>
+                    <button ion-button (click)="pushPage('ProductCreatePage', {seller:kiosk.slug})" icon-end outline block color="secondary">
+                      {{ 'PRODUCT_ADD_TITLE' | translate }}
+                      <ion-icon name="ios-add-circle-outline"></ion-icon>
+                    </button>
+                  </div>
+                </div>
+                <div margin-top-sm>
+                  <button (click)="pushPage('KioskuProductPage', {seller_id:kiosk.id, seller_slug:kiosk.slug})" ion-button block outline icon-start color="dark">
+                    <ion-icon name="md-shirt" color="dark"></ion-icon>
+                    <div text-dark>
+                      {{ 'SHOP_LIST_PRODUCT' | translate }}
+                    </div>
+                  </button>
+                </div>
+                <div margin-top border-top border-light style="height:2vh"></div>
+              </ion-item>
+            </ion-list>
+            <ion-list>
+              <ion-item no-padding padding-horizontal>
+                <div text-dark text-smd margin-bottom-md>
+                  <strong>{{ 'SHOP_USER_INFO_TITLE' | translate }}</strong>
+                </div>
+              </ion-item>
+              <ion-item no-padding padding-horizontal>
+                <div text-gray>
+                  <div text-smd margin-bottom-md>
+                    <ion-icon name="ios-pin" color="gray" margin-right-sm class="icon-center-all"></ion-icon>
+                    <strong class="icon-center-all">{{ 'SHOP_USER_INFO_ADDRESS' | translate }}</strong>
+                  </div>
+                  <div text-sm text-wrap text-graybrow>{{ kiosk.location }}</div>
+                </div>
+              </ion-item>
+              <ion-item no-padding padding-horizontal>
+                <div text-gray>
+                  <div text-smd margin-bottom-md>
+                    <strong>{{ 'SHOP_USER_INFO_SHIPPING' | translate }}</strong>
+                    <button *ngIf="kiosk.shipping != false" (click)="chooseKioskShipping()" color="danger" ion-button text-small outline float-right>
+                      {{ 'CHANGE_BUTTON' | translate }}
+                    </button>
+                  </div>
+                  <div *ngIf="kiosk.shipping == false" style="clear:both;" text-wrap text-center>
+                    <button (click)="chooseKioskShipping()" color="secondary" ion-button text-small outline round>
+                      {{ 'ADD_BUTTON' | translate }}
+                    </button>
+                  </div>
+                  <div *ngIf="kiosk.shipping != false" style="clear:both;" text-wrap>
+                    <div style="display:inline-block;" *ngFor="let ship of kiosk.shipping" [class]="'external-logo logo-' + ship" padding margin-sm></div>
+                  </div>
+                </div>
+              </ion-item>
+              <ion-item no-padding padding-horizontal>
+                <div text-gray margin-bottom>
+                  <div text-smd margin-bottom-md><strong>{{ 'SHOP_USER_INFO_NOTE' | translate }}</strong></div>
+                  <div text-sm text-graybrow text-wrap>{{ kiosk.note }}</div>
+                </div>
+              </ion-item>
+              <ion-item no-padding padding-horizontal>
+                <div text-gray margin-bottom>
+                  <div text-smd margin-bottom-md><strong>{{ 'SHOP_USER_INFO_DESCRIPTION' | translate }}</strong></div>
+                  <div text-sm text-graybrow text-wrap>{{ kiosk.description }}</div>
+                </div>
+              </ion-item>
+            </ion-list>
+          </div> 
+        </div>
+        <div *ngIf="_showKiosNew == true" padding>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-12>
+                <div text-center>
+                  <img style="width:40vh" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgdmlld0JveD0iMCAwIDEyOCAxMjgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiNmOGRiOTQ7fS5jbHMtMntmaWxsOiNmODk5MWQ7fS5jbHMtM3tmaWxsOiNmZmY7fS5jbHMtNHtmaWxsOiM1YmM5ZTE7fS5jbHMtNXtmaWxsOiMzMTQ5Njc7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZS8+PGcgZGF0YS1uYW1lPSIxNyBTdG9yZSIgaWQ9Il8xN19TdG9yZSI+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTksNDBoOTBhMCwwLDAsMCwxLDAsMHY2NmE2LDYsMCwwLDEtNiw2SDI1YTYsNiwwLDAsMS02LTZWNDBBMCwwLDAsMCwxLDE5LDQwWiIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTEwOSw0MEgxOWw3LjU0LTIwLjExQTYsNiwwLDAsMSwzMi4xNiwxNkg5NS44NGE2LDYsMCwwLDEsNS42MiwzLjg5WiIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTMwLjI1LDU4QTExLjI1LDExLjI1LDAsMCwxLDE5LDQ2Ljc1VjQwSDQxLjV2Ni43NUExMS4yNSwxMS4yNSwwLDAsMSwzMC4yNSw1OFoiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik01Mi43NSw1OEExMS4yNSwxMS4yNSwwLDAsMSw0MS41LDQ2Ljc1VjQwSDY0djYuNzVBMTEuMjUsMTEuMjUsMCwwLDEsNTIuNzUsNThaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNzUuMjUsNThBMTEuMjUsMTEuMjUsMCwwLDEsNjQsNDYuNzVWNDBIODYuNXY2Ljc1QTExLjI1LDExLjI1LDAsMCwxLDc1LjI1LDU4WiIvPjxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTk3Ljc1LDU4QTExLjI1LDExLjI1LDAsMCwxLDg2LjUsNDYuNzVWNDBIMTA5djYuNzVBMTEuMjUsMTEuMjUsMCwwLDEsOTcuNzUsNThaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNOTcuNzUsNThBMTEuMjUsMTEuMjUsMCwwLDEsODYuNSw0Ni43NVY0MEgxMDl2Ni43NUExMS4yNSwxMS4yNSwwLDAsMSw5Ny43NSw1OFoiLz48cmVjdCBjbGFzcz0iY2xzLTQiIGhlaWdodD0iMjAiIHJ4PSI0IiByeT0iNCIgd2lkdGg9IjI1IiB4PSIzMSIgeT0iNjciLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik03Myw2N0g5M2E0LDQsMCwwLDEsNCw0djQxYTAsMCwwLDAsMSwwLDBINjlhMCwwLDAsMCwxLDAsMFY3MUE0LDQsMCwwLDEsNzMsNjdaIi8+PHBhdGggY2xhc3M9ImNscy01IiBkPSJNMTA3LDc5LjhWMTA2YTQsNCwwLDAsMS00LDRIOTlWNzFhNiw2LDAsMCwwLTYtNkg3M2E2LDYsMCwwLDAtNiw2djguMzNhMiwyLDAsMCwwLDQsMFY3MWEyLDIsMCwwLDEsMi0ySDkzYTIsMiwwLDAsMSwyLDJ2MzlINzFWODQuNTVhMiwyLDAsMCwwLTQsMFYxMTBIMjVhNCw0LDAsMCwxLTQtNFY2OGEyLDIsMCwwLDAtNCwwdjM4YTgsOCwwLDAsMCw4LDhoNzhhOCw4LDAsMCwwLDgtOFY3OS44QTIsMiwwLDAsMCwxMDcsNzkuOFoiLz48cGF0aCBjbGFzcz0iY2xzLTUiIGQ9Ik0xMDMuMzMsMTkuMTlBOCw4LDAsMCwwLDk1Ljg0LDE0SDcyLjEyYTIsMiwwLDAsMCwwLDRoOC4yMmwzLjc1LDIwSDY2VjE4aC4wN2EyLDIsMCwwLDAsMC00aC04LjVhMiwyLDAsMCwwLDAsNEg2MlYzOEg0My45MWwzLjc1LTIwaDMuOWEyLDIsMCwwLDAsMC00SDMyLjE2YTgsOCwwLDAsMC03LjQ5LDUuMTlDMjQuNDUsMTkuNzYsMTcsMzkuNDEsMTcsNDBWNjEuNzZhMiwyLDAsMCwwLDQsMFY1Ni4yMmExMy4yMSwxMy4yMSwwLDAsMCwyMC41LTIuNSwxMy4xNSwxMy4xNSwwLDAsMCwxLjA3LDEuNTEsMiwyLDAsMCwwLDMuMDctMi41NkM0Myw0OS41Niw0My41LDQ2LjY0LDQzLjUsNDJINjJ2NC43NWE5LjI2LDkuMjYsMCwwLDEtMTIuNDksOC42NywyLDIsMCwwLDAtMS40LDMuNzVBMTMuMjMsMTMuMjMsMCwwLDAsNjQsNTMuNzJhMTMuMjIsMTMuMjIsMCwwLDAsMjIuNSwwLDEzLjIxLDEzLjIxLDAsMCwwLDIwLjUsMi41Vjc0LjU4YTIsMiwwLDAsMCw0LDBWNDBDMTExLDM5LjQxLDEwMy41NCwxOS43NCwxMDMuMzMsMTkuMTlaTTMwLjI1LDU2QTkuMjYsOS4yNiwwLDAsMSwyMSw0Ni43NVY0Mmg1LjY0YTIsMiwwLDAsMCwwLTRIMjEuODlsNi41My0xNy40QTQsNCwwLDAsMSwzMi4xNiwxOEg0My41OUwzOS44NCwzOEgzMS4yNWEyLDIsMCwwLDAsMCw0SDM5LjV2NC43NUE5LjI2LDkuMjYsMCwwLDEsMzAuMjUsNTZaTTk1Ljg0LDE4YTQsNCwwLDAsMSwzLjc1LDIuNkwxMDYuMTEsMzhoLTE4TDg0LjQxLDE4Wm0xLjkxLDM4YTkuMjYsOS4yNiwwLDAsMS05LjI1LTkuMjUsMiwyLDAsMCwwLTQsMCw5LjI1LDkuMjUsMCwwLDEtMTguNSwwVjQySDg0LjUzYTIsMiwwLDAsMCwzLjk1LDBIMTA3djQuNzVBOS4yNiw5LjI2LDAsMCwxLDk3Ljc1LDU2WiIvPjxwYXRoIGNsYXNzPSJjbHMtNSIgZD0iTTM1LDY5YTIsMiwwLDAsMCwwLTQsNiw2LDAsMCwwLTYsNlY4M2E2LDYsMCwwLDAsNiw2SDUyYTYsNiwwLDAsMCw2LTZWNzFhNiw2LDAsMCwwLTYtNkg0MC4yOWEyLDIsMCwwLDAsMCw0SDUyYTIsMiwwLDAsMSwyLDJWODNhMiwyLDAsMCwxLTIsMkgzNWEyLDIsMCwwLDEtMi0yVjcxQTIsMiwwLDAsMSwzNSw2OVoiLz48L2c+PC9zdmc+" />
+                </div>
+              </ion-col>
+              <ion-col col-12>
+                <p>{{ 'SHOP_USER_NEW_MESSSAGE' | translate }}</p>
+                <button (click)="pushPage('KioskuSellingPage')" ion-button color="facebook" icon-end block middle medium>
+                  {{ 'SHOP_USER_NEW_TITLE' | translate }}
+                  <ion-icon name="md-arrow-forward"></ion-icon>
+                </button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="_showBlank == true" padding>
+    <div padding margin text-center>
+      <div margin><img src="assets/icon/kiosdesa-logo-cry.svg" style="width:50%" /></div>
+      <h5 margin-top text-gray>{{ 'ERROR_TITLE' | translate }}</h5>
+      <p>{{ 'ERROR' | translate }}</p>
+      <button (click)="loadBuyer()" ion-button outline round color="danger" icon-start>
+        <ion-icon name="ios-refresh" color="danger"></ion-icon> {{ 'REPLY_BUTTON' | translate }}
+      </button>
+    </div>
+  </div>
+</ion-content>
+<ion-footer bg-light border-top border-smoke>
+  <div class="bg-white">
+    <ion-segment [(ngModel)]="tabSegment">
+      <ion-segment-button value="buyer" (ionSelect)="loadBuyer()">
+        {{ 'USER_ACCOUNT_TITLE' | translate | uppercase }}
+      </ion-segment-button>
+      <ion-segment-button value="kios" (ionSelect)="loadKios()">
+        {{ 'SHOP_USER_TITLE' | translate | uppercase }}
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+</ion-footer>

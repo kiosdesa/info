@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-navbar color="oranges">
+    <ion-title>{{ 'CART_TITLE' | translate }}</ion-title>
+    <ion-buttons *ngFor="let topMenu of topRightMenu" end>
+        <ion-badge *ngIf="topMenu.notif > 0 ? topMenu.notif : null" color="danger" class="top-notif-badge">{{ topMenu.notif }}</ion-badge>
+        <button ion-button (click)="pushPage(topMenu)" icon-only>
+            <ion-icon [name]="topMenu.icon"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content (swipe)="swipe($event)" no-padding bg-light>
+  <ion-refresher (ionRefresh)="refresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div style="min-height:70vh">
+    <div *ngIf="_showBlank == false">
+      <div *ngFor="let carts of _dataCart; let i = index">
+        <ion-list bg-white margin>
+          <ion-list-header no-margin>
+            <span text-graybrown margin-right-sm>{{ 'SELLER_TITLE' | translate }}:</span>
+            <span text-dark text-nowrap>{{ carts.seller_detail.name }}</span>
+            <span *ngIf="carts.seller_detail.premium_shop_type == true" margin-left-sm>
+              <img [src]="_cdnIcon + '/diamond.svg'" width="4%" class="icon-center-all" />
+            </span>
+          </ion-list-header>
+          <ion-item *ngFor="let products of carts.data_product; let ix = index" [ngClass]="products.ready_order == true ? '' : 'deactive'">
+            <div item-left (click)="openProduct(products)">
+              <img [src]="_cdnProduct + '/' + products.thumb" width="48" />
+            </div>
+            <div item-inner text-left>
+              <div *ngIf="products.ready_order == false">
+                <ion-badge color="oranges">{{ 'PRODUCT_STOCK_EMPTY' | translate }}</ion-badge>
+                <span text-sm text-bold>
+                  ({{ _dataCart[i].data_product[ix].quantity }} {{ 'PRODUCT_ITEM_TITLE' | translate }})
+                </span>
+              </div>
+              <button (click)="openProduct(products)" class="icon-products-click" text-left [ngClass]="products.ready_order == true ? '' : 'text-strike'">
+                <div text-sm text-nowrap><strong>{{ products.name }}</strong></div>
+                <div text-sm text-danger text-bold margin-top-sm>
+                  {{ products.fix_price }}
+                </div>
+              </button>
+              <ion-grid no-padding *ngIf="products.ready_order == true">
+                <ion-row no-padding>
+                  <ion-col col-5 text-right text-sm text-gray>
+                    <div padding-sm margin-top-xs>{{ 'CART_QUANTITY_TITLE' | translate }}:</div>
+                  </ion-col>
+                  <ion-col col-2>
+                    <button (click)="decrementQty(i, ix)" [disabled]="products.quantity == products.minimum_order || _allButtonStatus" [color]="products.quantity > products.minimum_order ? 'secondary' : 'dark'" ion-button clear no-padding style="height:auto">
+                      <ion-icon name="ios-remove-circle-outline"></ion-icon>
+                    </button>
+                  </ion-col>
+                  <ion-col col-2>
+                    <div padding-sm text-sm text-dark margin-top-xs>{{ _dataCart[i].data_product[ix].quantity }}</div>
+                  </ion-col>
+                  <ion-col col-2>
+                    <button (click)="incrementQty(i, ix)" [disabled]="products.quantity == products.stock || _allButtonStatus" [color]="products.quantity < products.stock ? 'secondary' : 'dark'" ion-button clear no-padding style="height:auto">
+                      <ion-icon name="ios-add-circle-outline"></ion-icon>
+                    </button>
+                  </ion-col>
+                  <ion-col col-1></ion-col>
+                </ion-row>
+              </ion-grid>
+            </div>
+            <div item-right>
+              <button (click)="remove({
+                id_product:products.id,
+                id_buyer:carts.buyer_id,
+                id_seller:carts.seller_id,
+                slug_product:products.slug,
+                token_cart:carts.token_cart
+              })" [disabled]="_allButtonStatus" ion-button [color]="products.ready_order == true ? 'gray' : 'danger'" large clear no-margin>
+                <span *ngIf="products.ready_order == false" text-sm margin-right-sm>{{ 'DELETE_BUTTON' | translate }}</span>
+                <ion-icon name="ios-trash"></ion-icon>
+              </button>
+            </div>
+          </ion-item>
+        </ion-list>
+        <hr *ngIf="_dataCart.length > 1 && i != (_dataCart.length - 1)">
+      </div>
+    </div>
+    <div *ngIf="_showBlank == true">
+      <div padding margin text-center>
+        <div margin><img src="assets/icon/kiosdesa-logo-cry.svg" style="width:50%" /></div>
+        <h5 margin-top text-gray>{{ 'CART_EMPTY_TITLE' | translate }}</h5>
+        <p>{{ 'CART_EMPTY_MESSAGE' | translate }}</p>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer bg-white border-top border-smoke>
+  <ion-grid *ngIf="_dataCart">
+    <ion-row>
+      <ion-col col-6 no-padding-bottom>
+        <div d-block block text-sm text-gray margin-bottom-sm>{{ 'CART_TOTAL_PRICE_TITLE' | translate }} ({{ _cartCount }} {{ 'PRODUCT_ITEM_TITLE' | translate }}):</div>
+        <div text-danger>
+          <span text-sm *ngIf="_allButtonStatus == true">{{ 'CART_TOTAL_CALCULATE' | translate }}</span>
+          <span text-md *ngIf="_allButtonStatus == false">{{ _totalPrice }}</span>
+        </div>
+      </ion-col>
+      <ion-col col-6 no-padding-bottom>
+        <button (click)="checkout({page:'CartCheckoutPage'})" ion-button color="secondary" icon-start block>
+          <ion-icon name="ios-cart"></ion-icon> {{ 'CART_CHECKOUT_TITLE' | translate }}
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

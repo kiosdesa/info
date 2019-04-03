@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ 'FORGOT_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="no-scroll" padding-right>
+  <div class="centering-middle" padding>
+    <form (submit)="doForgot()">
+      <ion-list>
+
+        <ion-item>
+          <ion-label fixed>{{ 'EMAIL' | translate }}</ion-label>
+          <ion-input type="email" name="email" placeholder="username@domain" [(ngModel)]="account.email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label fixed>{{ 'PHONE' | translate }}</ion-label>
+          <ion-input type="tel" name="phone" placeholder="no.tel: 08xxxxxxx" [(ngModel)]="account.phone"></ion-input>
+        </ion-item>
+
+        <div padding-left margin-top>
+          <button ion-button color="danger" block>{{ 'FORGOT_BUTTON' | translate }}</button>
+        </div>
+
+      </ion-list>
+    </form>
+  </div>
+</ion-content>

@@ -1,0 +1,99 @@
+<ion-header>
+    <ion-navbar color="oranges">
+        <span left>
+            <img [src]="'assets/icon/logo-kiosdesa-text-white.svg'" padding-left height="16" />
+        </span>
+        <ion-buttons *ngFor="let topMenu of topRightMenu" end>
+            <ion-badge *ngIf="topMenu.notif > 0 ? topMenu.notif : null" color="danger" class="top-notif-badge">{{ topMenu.notif }}</ion-badge>
+            <button ion-button (click)="openPage(topMenu)" icon-only>
+                <ion-icon [name]="topMenu.icon"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div *ngIf="_showBlank == false">
+        <!-- Start Preload Mockup -->
+        <div *ngIf="_showSkeleton == true">
+            <div style="height:90px" bg-skeleton></div>
+            <div padding>
+                <h6>
+                    <div style="width:20px;height:20px;display:inline-block" padding-sm bg-skeleton></div>
+                    <div style="width:50%;height:20px;display:inline-block" padding-sm bg-skeleton></div>
+                </h6>
+                <ion-grid no-padding>
+                    <ion-row no-padding>
+                        <ion-col col-3 *ngFor="let menu of [1,2,3,4,5,6,7,8,10,11,12,13]" [class]="_classColumn">
+                            <div style="width:80px;height:80px" margin-sm bg-skeleton></div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+        </div>
+        <!-- End Preload Mockup -->
+        <div *ngIf="_showSkeleton == false">
+            <div style="height:90px" *ngIf="_bannerSlides && _bannerSlides.length">
+                <ion-slides *ngIf="_bannerSlides && _bannerSlides.length" class="banner-slides" pager="true" dir="{{dir}}" autoplay="6400" loop="true">
+                    <ion-slide *ngFor="let slide of _bannerSlides">
+                        <img [src]="_cdnBanner + '/' + slide.image" class="slide-image" />
+                    </ion-slide>
+                </ion-slides>
+            </div>
+            <div padding (swipe)="swipe($event)">
+                <h6 text-left text-graybrow>
+                    <ion-icon name="ios-keypad" padding-right></ion-icon> 
+                    {{ 'CATEGORY_TITLE' | translate }}
+                </h6>
+                <ion-grid no-padding>
+                    <ion-row no-padding>
+                    <ion-col col-3 *ngFor="let menu of _menuCategory" [class]="_classColumn">
+                        <div class="container-icon-menu" text-center>
+                        <button (click)="openPage(menu)" class="icon-menu-click" padding-top padding-bottom>
+                            <div item-start position-relative>
+                                <img [src]="_cdnIcon + '/' +  menu.slug + '.svg'" height="32" />
+                            </div>
+                            <br />
+                            <div class="text-icon-menu">
+                                <span text-sm>{{menu.name}}</span>
+                            </div>
+                        </button>
+                        </div>
+                    </ion-col>
+                    </ion-row>
+                </ion-grid>
+                <h6 text-left text-graybrow>
+                    <ion-icon name="md-pricetags" padding-right></ion-icon> 
+                    {{ 'PRODUCT_NEW_TITLE' | translate }}
+                </h6>
+                <ion-grid no-padding>
+                    <ion-row no-padding>
+                    <ion-col col-sm-9 col-md-6 col-lg-4 col-xl-3 *ngFor="let products of _newProducts" [class]="_classColumn">
+                        <div class="container-list-product" text-center position-relative>
+                            <button (click)="openPage(products)" class="icon-products-click" padding-bottom>
+                                <div class="container-image-product" item-start position-relative>
+                                    <img [src]="_cdnProduct + '/' +  products.thumb" style="width:100%" />
+                                </div>
+                                <br />
+                                <div class="container-product-text" text-left text-sm>
+                                    <div style="word-wrap:normal">{{products.name}}</div>
+                                    <div style="display:inline-block" text-danger>{{products.fix_price}}</div>
+                                </div>
+                            </button>
+                        </div>
+                    </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="_showBlank == true">
+        <div padding margin text-center>
+            <div margin><img src="assets/icon/kiosdesa-logo-cry.svg" style="width:50%" /></div>
+            <h5 margin-top text-gray>{{ 'ERROR_TITLE' | translate }}</h5>
+            <p>{{ 'ERROR' | translate }}</p>
+            <button (click)="getAppData()" ion-button outline round color="danger" icon-start>
+                <ion-icon name="ios-refresh" color="danger"></ion-icon> {{ 'REPLY_BUTTON' | translate }}
+            </button>
+        </div>
+    </div>
+</ion-content>

@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar align-title="center" color="oranges">
+    <ion-title center>{{ 'FAVORITE_TITLE' | translate }}</ion-title>
+    <ion-buttons *ngFor="let topMenu of topRightMenu" end>
+      <ion-badge *ngIf="topMenu.notif > 0 ? topMenu.notif : null" color="danger" class="top-notif-badge">{{ topMenu.notif }}</ion-badge>
+      <button ion-button (click)="pushPage(topMenu)" icon-only>
+          <ion-icon [name]="topMenu.icon"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content (swipe)="swipe($event)">
+  <div bg-light padding-vartical-md border-bottom border-smoke>
+    <ion-searchbar (ionInput)="searchTyping($event)" (keypress)="searchPress($event)" placeholder="{{ 'FAVORITE_SEARCH' | translate }}" left></ion-searchbar>
+  </div>
+  <div style="height:100vh">
+    <div *ngIf="_showBlank == false">
+      <div padding>
+        <ion-grid no-padding>
+          <ion-row no-padding>
+            <ion-col col-4 *ngFor="let products of _listData; let i = index" [class]="_classColumn">
+              <div class="container-list-product" text-center position-relative margin-bottom>
+                <button (click)="openProduct(products)" [class]="products.ready_order == true ? 'icon-products-click' : 'icon-products-click deactive'">
+                  <div class="container-image-product" item-start position-relative>
+                    <img [src]="_cdnProduct + '/' +  products.thumb" style="width:100%" />
+                  </div>
+                  <br />
+                  <div class="container-product-text" text-center text-sm>
+                    <div style="word-wrap:normal">{{products.name}}</div>
+                    <ion-badge *ngIf="products.ready_order == false" color="oranges" text-sm>{{ 'PRODUCT_STOCK_EMPTY' | translate }}</ion-badge>
+                    <div style="display:inline-block" text-danger *ngIf="products.ready_order == true">{{products.fix_price}}</div>
+                  </div>
+                </button>
+                <div padding-horizontal>
+                  <button (click)="unfavProduct(i, products)" ion-button icon-start color="light" block text-sm>
+                    <ion-icon name="ios-trash-outline" color="gray"></ion-icon> {{ 'DELETE_BUTTON' | translate }}
+                  </button>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+    <div *ngIf="_showBlank == true">
+      <div padding margin text-center>
+        <div margin><img src="assets/icon/kiosdesa-logo-cry.svg" style="width:50%" /></div>
+        <h5 margin-top text-gray>{{ 'FAVORITE_ERROR_TITLE' | translate }}</h5>
+        <p>{{ 'FAVORITE_ERROR_MESSAGE' | translate }}</p>
+      </div>
+    </div>
+  </div>
+</ion-content>

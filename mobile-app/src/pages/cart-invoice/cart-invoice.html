@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-navbar color="oranges">
+    <ion-title>{{ 'PAY_BUTTON' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div *ngIf="_dataParam != undefined">
+    <div bg-light text-gray padding-lg text-sm>
+      {{ 'SHOP_USER_SHIPPING_MESSAGE' | translate }}<br />
+      {{ _dataParam.adrd.street }}, {{ _dataParam.adrd.metadata.city_name }}, {{ _dataParam.adrd.metadata.province_name }}, {{ _dataParam.adrd.metadata.zip_code }}
+    </div>
+    <ion-list padding-right>
+      <ion-item>
+        <div text-center text-gray text-sm>Invoice:</div>
+        <h6 text-center text-underline>{{ _dataParam.data.invoice_all }}</h6>
+      </ion-item>
+      <ion-item>
+        <div item-left text-sm text-gray float-left>{{ 'CART_TOTAL_PRICE_TITLE' | translate }}</div>
+        <div item-right text-sm text-facebook float-right>
+          <strong>{{ _dataParam.data.total_ammount_format.symbol }} {{ _dataParam.data.total_price | seNum:0 }}</strong>
+        </div>
+      </ion-item>
+      <ion-item>
+        <div item-left text-sm text-gray float-left>{{ 'TARIFF_TITLE' | translate }}</div>
+        <div item-right text-sm text-facebook float-right>
+          <strong>{{ _dataParam.data.total_ammount_format.symbol }} {{ _dataParam.data.total_tariff | seNum:0 }}</strong>
+        </div>
+      </ion-item>
+      <ion-item *ngIf="_dataParam.data.code_unique > 0">
+        <div item-left text-sm text-gray float-left>{{ 'PAY_UNIQUE_TITLE' | translate }}</div>
+        <div item-right text-sm text-facebook float-right>{{ _dataParam.data.code_unique }}</div>
+      </ion-item>
+      <ion-item>
+        <div item-left text-sm text-gray float-left>{{ 'PAY_TOTAL_AMMOUNT' | translate }}</div>
+        <div item-right text-md text-danger float-right>
+          <strong>{{ _dataParam.data.total_ammount_format.symbol }} {{ _totalToPay | seNum:0 }}</strong>
+        </div>
+      </ion-item>
+      <ion-item *ngIf="_dataParam.pc.tax != 0">
+        <div text-sm text-bluesexy text-right text-underline margin-right-sm>
+          <i>*{{ 'PAY_TAX_MESSAGE' | translate }} : <strong>{{ _dataParam.pc.tax | seNum:0 }}</strong></i>
+        </div>
+      </ion-item>
+      <ion-item>
+        <div item-left text-sm text-gray float-left>{{ 'PAY_CHOOSED_NOTE' | translate }}</div>
+        <div item-right text-sm text-secondary float-right>{{ _dataParam.pc.name }}</div>
+      </ion-item>
+      <ion-item-divider *ngIf="_dataParam.pc.account !== null">
+        <div style="display:inline-block;width:100%;clear:both;">
+          <div text-sm text-gray float-left>{{ 'PAY_CODE_ACCOUNT_NAME' | translate }}</div>
+          <div text-sm text-secondary float-right>{{ _dataParam.pc.account }}</div>
+        </div>
+        <p text-gray text-right><small>{{ 'PAY_ATASNAMA' | translate }} {{ _dataParam.pc.account_name }}</small></p>
+      </ion-item-divider>
+    </ion-list>
+  </div>
+  <div *ngIf="_dataParam.data.message != null" bg-light text-danger padding-lg text-sm>
+    <p no-padding no-margin>{{ 'PAY_CHOOSE_MESSAGE' | translate}}</p>
+    <a (click)="openHow(_dataParam.data.message)" cursor-pointer>{{ 'PAY_HOW_TO' | translate }}?</a>
+    <p *ngIf="_openHow" [innerHTML]="_openHow"></p>
+  </div>
+</ion-content>
+<ion-footer bg-white border-top border-smoke>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 no-padding-bottom>
+        <div *ngIf="_dataParam.shop_button == true">
+          <button (click)="goHome(true)" ion-button color="secondary" block>{{ 'CART_REPEAT_ORDER' | translate }}</button>
+        </div>
+      </ion-col>
+      <ion-col col-12 no-padding-bottom>
+        <button (click)="confirm({page:'ConfirmPayPage', param:[_dataParam.data.invoice_all, _totalToPay]})" ion-button color="danger" block>
+          {{ 'PAY_CONFIRM_BUTTON' | translate }}
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
