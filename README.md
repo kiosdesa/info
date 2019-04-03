@@ -30,9 +30,9 @@
     
 ### Informasi Author
 - Owner: Dinas Pemberdayaan Masyarakat & Desa
-- Trustee: Dicky Ahmed
-- Founder: Ofan Sofandani
-- Asistant: Fikri Rizaldi
+- Trustee & Manager: Dicky Ahmed
+- Founder & Full-Stack: Ofan Sofandani
+- Assistant & Programmer: Fikri Rizaldi
 
 ### Informasi Kontak
 - Owner: (0232) 871502
