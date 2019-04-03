@@ -18,7 +18,7 @@
   - Method Core Framework: OOP + CSLM (Controller, Service, Library, Modular)
 - Client Side
   - Cek Repository Mobile Apps:
-  **[Tutorial](https://github.com/sofandani/kiosdesa-mobile/blob/master/README.md)** | **[Source Code](https://github.com/sofandani/kiosdesa-mobile/blob/master)**
+  **[Tutorial](https://github.com/sofandani/kiosdesa-mobile/blob/master/README.md)** | **[Source Code](https://github.com/sofandani/kiosdesa-mobile)**
   - Public Apps
     - Engine Apps Language: TypeScript
     - Framework: IONIC
