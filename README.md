@@ -1,5 +1,7 @@
 # KIOSDESA.COM
 
+![Kiosdesa](https://www.kiosdesa.com/logo-kiosdesa.jpg)
+
 ### Informasi Platform
 - Domain
   - Primary: https://www.kiosdesa.com
