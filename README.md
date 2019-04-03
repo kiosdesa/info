@@ -19,6 +19,12 @@
     - Engine Apps Language: TypeScript
     - Framework: IONIC
     - Generator: NodeJS
+    - Type Apps: Mobile
+  - Company Apps
+    - Engine Apps language: TypeScript
+    - Framework: IONIC
+    - Generator: ElectronJS
+    - Type Apps: Desktop
     
 ### Informasi Author
 - Owner: Dinas Pemberdayaan Masyarakat & Desa
