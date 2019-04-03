@@ -1,0 +1,56 @@
+page-welcome {
+  // Fullscreen animated rainbow gradient
+  ion-content {
+    //background: linear-gradient(316deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+    background: linear-gradient(316deg, #ffaf04, #ffee00, #ffd900, #ffaf04, #ffae00);
+    background-size: 1800% 1800%;
+    animation: rainbow 30s linear infinite;
+  }
+  @keyframes rainbow {
+    0% {
+      background-position: 0% 0%
+    }
+    50% {
+      background-position: 100% 100%
+    }
+    100% {
+      background-position: 0% 0%
+    }
+  }
+
+  .splash-info {
+    position: relative;
+    z-index: 2;
+    top:10%;
+    bottom:10%;
+    margin-top: auto;
+    text-align: center;
+  }
+  .splash-logo {
+    margin: auto;
+    background: url('../assets/icon/kiosdesa-logo-normal.svg') no-repeat transparent;
+    background-size: 100%;
+    margin: 30vw auto;
+    width: 128px;
+    height: 168px;
+  }
+  .tombolAkses
+  {
+    position: fixed;
+    left:0;
+    right:0;
+    margin:auto;
+    bottom: 0;
+  }
+
+  button.login {
+    margin: auto;
+    /*background-color: white;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+    color: #333;*/
+
+    &.activated {
+      background-color: rgb(220, 220, 220);
+    }
+  }
+}

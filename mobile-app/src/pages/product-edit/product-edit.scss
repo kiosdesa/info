@@ -1,0 +1,14 @@
+page-product-edit {
+    [product-gallery], .product-gallery,
+    {
+        position: relative;
+        [loop-photo], .loop-photo
+        {
+            margin: 1.5%;
+            width: 29.7%;
+            float: left;
+            position: relative;
+            display:inline-block;
+        }
+    }
+}

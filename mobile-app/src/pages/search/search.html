@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar color="oranges">
+    <ion-searchbar (ionInput)="searchTyping($event)" (keypress)="searchPress($event)" placeholder="{{ 'SEARCH_PLACEHOLDER' | translate }}" left></ion-searchbar>
+    <button ion-button menuToggle="right" right>
+      <ion-icon name="more"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+<ion-content no-padding>
+  <div *ngIf="_showBlank == false">
+    <div *ngIf="_countProduct" class="bg-light" padding text-gray>{{ _countProduct }} {{ 'PRODUCT_TITLE' | translate }}</div>
+    <hr hr-white hr-bottom />
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 *ngFor="let products of _listData" [class]="_classColumn">
+          <div class="container-list-product" text-center position-relative>
+            <div margin-bottom>
+              <div class="container-image-product" item-start position-relative>
+                <button (click)="openProduct(products)" class="icon-products-click">
+                  <img [src]="_cdnProduct + '/' +  products.thumb" style="width:100%" />
+                </button>
+              </div>
+              <div class="container-product-text">
+                <button (click)="openProduct(products)" class="icon-products-click">
+                  <div text-sm text-nowrap>{{products.name}}</div>
+                  <div style="display:inline-block" text-sm text-danger>{{products.fix_price}}</div>
+                </button>
+                <div text-sm>
+                  <button (click)="openPage({component:'SellerDetailPage',slug:products.seller_detail.slug,name:products.seller_detail.name})" class="icon-products-click">
+                    <div text-nowrap text-sm>
+                      <span [ngClass]="products.seller_detail.premium_shop_type == true ? 'text-bluesexy text-underline' : 'text-gray'">
+                        {{ products.seller_detail.name }}
+                      </span>
+                      <span *ngIf="products.seller_detail.premium_shop_type == true" margin-left-sm>
+                        <img [src]="_cdnIcon + '/diamond.svg'" width="6%" class="icon-center-all" />
+                      </span>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div *ngIf="_showBlank == true">
+    <div padding margin text-center>
+      <div margin><img src="assets/icon/kiosdesa-logo-cry.svg" style="width:50%" /></div>
+      <h5 margin-top text-gray>{{ 'PRODUCT_ERROR_TITLE' | translate }}</h5>
+      <p>{{ 'PRODUCT_ERROR_MESSAGE' | translate }}</p>
+    </div>
+  </div>
+</ion-content>

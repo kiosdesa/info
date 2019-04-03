@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar color="oranges">
+      <ion-searchbar (ionInput)="searchTyping($event)" (keypress)="searchPress($event)" placeholder="{{ 'SEARCH_TITLE' | translate }} {{ _nameCategory }}" left></ion-searchbar>
+      <ion-buttons *ngFor="let topMenu of topRightMenu" end>
+          <ion-badge *ngIf="topMenu.notif > 0 ? topMenu.notif : null" color="danger" class="top-notif-badge">{{ topMenu.notif }}</ion-badge>
+          <button ion-button (click)="openPage(topMenu)" icon-only>
+              <ion-icon [name]="topMenu.icon"></ion-icon>
+          </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div *ngIf="_showBlank == true">
+      <div padding margin text-center>
+        <div margin><img src="{{ _serverIcon }}/icon-coming-soon.svg" style="width:90vw" /></div>
+        <h5 margin-top text-gray>{{ 'COMMING_SOON' | translate }}</h5>
+        <p>{{ 'COMMING_SOON_MESSAGE' | translate }}</p>
+      </div>
+  </div>
+</ion-content>

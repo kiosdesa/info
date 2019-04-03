@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ title }}</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="cancel()" color="bluesexy">
+        <span color="bluesexy" hideWhen="android,windows">
+          {{ 'CLOSE_BUTTON' | translate }}
+        </span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list radio-group>
+    <ion-item *ngFor="let loop of _dataItems">
+      <ion-label>{{ loop.label }}</ion-label>
+      <ion-radio (click)="choose(loop)"></ion-radio>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer bg-light border-top border-smoke>
+  <ion-list no-margin>
+    <div padding>
+      <button (click)="done()" [disabled]="this._dataChoose == undefined" ion-button [color]="this._dataChoose ? 'bluesexy' : 'gray'" icon-right block>
+        {{ 'APPLY_BUTTON' | translate }} 
+        <ion-icon name="ios-log-in"></ion-icon>
+      </button>
+    </div>
+  </ion-list>
+</ion-footer>
