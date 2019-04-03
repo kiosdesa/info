@@ -1,0 +1,617 @@
+// http://ionicframework.com/docs/v2/theming/
+.no-bg, [no-bg] {background: none}
+.bg-primary, [bg-primary] { background: color($colors, primary) }
+.bg-secondary, [bg-secondary], .bg-success, [bg-success] { background: color($colors, secondary) }
+.bg-danger, [bg-danger] { background: color($colors, danger) }
+.bg-light, [bg-light] { background: color($colors, light) }
+.bg-white, [bg-white] { background: color($colors, white) }
+.bg-dark, [bg-dark] { background: color($colors, dark) }
+.bg-cyan, [bg-cyan] { background: color($colors, cyan) }
+.bg-greentea, [bg-greentea] { background: color($colors, greentea) }
+.bg-redyoung, [bg-redyoung] { background: color($colors, redyoung) }
+.bg-smoke, [bg-smoke] { background: color($colors, smoke) }
+
+.bg-orange, [bg-orange], .bg-oranges, [bg-oranges] { background: color($colors, oranges, base) }
+.bg-orange-base, [bg-orange-base] { background: color($colors, oranges, base) }
+.bg-orange-step, [bg-orange-step] { background: color($colors, oranges, step) }
+.bg-orange-contrast, [bg-orange-contrast] { background: color($colors, oranges, contrast) }
+
+.bg-twitter, [bg-twitter] { background: color($colors, twitter, base) }
+.bg-twitter-base, [bg-twitter-base] { background: color($colors, twitter, base) }
+.bg-twitter-step, [bg-twitter-step] { background: color($colors, twitter, step) }
+.bg-twitter-contrast, [bg-twitter-contrast] { background: color($colors, twitter, contrast) }
+
+.bg-facebook, [bg-facebook] { background: color($colors, facebook, base) }
+.bg-facebook-base, [bg-facebook-base] { background: color($colors, facebook, base) }
+.bg-facebook-step, [bg-facebook-step] { background: color($colors, facebook, step) }
+.bg-facebook-contrast, [bg-facebook-contrast] { background: color($colors, facebook, contrast) }
+
+.bg-graybrow, [bg-graybrow] { background: color($colors, graybrow, base) }
+.bg-graybrow-base, [bg-graybrow-base] { background: color($colors, graybrow, base) }
+.bg-graybrow-step, [bg-graybrow-step] { background: color($colors, graybrow, step) }
+.bg-graybrow-contrast, [bg-graybrow-contrast] { background: color($colors, graybrow, contrast) }
+
+.bg-skeleton, [bg-skeleton] {
+  background: #d3d3d3;
+}
+
+/* Text Color */
+.text-danger, [text-danger] { color: color($colors, danger) }
+.text-secondary, [text-secondary], .text-success, [text-success] { color: color($colors, secondary) }
+.text-light, [text-light] { color: color($colors, light) }
+.text-gray, [text-gray] { color: color($colors, gray) }
+.text-dark, [text-dark] { color: color($colors, dark) }
+
+.text-orange, [text-orange], .text-oranges, [text-oranges]  { color: color($colors, oranges, base) }
+.text-orange-base, [text-orange-base], .text-oranges-base, [text-oranges-base] { color: color($colors, oranges, base) }
+.text-orange-step, [text-orange-step], .text-oranges-step, [text-oranges-step] { color: color($colors, oranges, step) }
+.text-orange-contrast, [text-orange-contrast], .text-oranges-contrast, [text-oranges-contrast] { color: color($colors, oranges, contrast) }
+
+.text-twitter, [text-twitter] { color: color($colors, twitter, base) }
+.text-twitter-base, [text-twitter-base] { color: color($colors, twitter, base) }
+.text-twitter-step, [text-twitter-step] { color: color($colors, twitter, step) }
+.text-twitter-contrast, [text-twitter-contrast] { color: color($colors, twitter, contrast) }
+
+.text-facebook, [text-facebook] { color: color($colors, facebook, base) }
+.text-facebook-base, [text-facebook-base] { color: color($colors, facebook, base) }
+.text-facebook-step, [text-facebook-step] { color: color($colors, facebook, step) }
+.text-facebook-contrast, [text-facebook-contrast] { color: color($colors, facebook, contrast) }
+
+.text-bluesexy, [text-bluesexy] { color: color($colors, bluesexy, base) }
+.text-bluesexy-base, [text-bluesexy-base] { color: color($colors, bluesexy, base) }
+.text-bluesexy-step, [text-bluesexy-step] { color: color($colors, bluesexy, step) }
+.text-bluesexy-contrast, [text-bluesexy-contrast] { color: color($colors, bluesexy, contrast) }
+
+.text-greentea, [text-greentea] { color: color($colors, greentea, base) }
+.text-greentea-base, [text-greentea-base] { color: color($colors, greentea, base) }
+.text-greentea-step, [text-greentea-step] { color: color($colors, greentea, step) }
+.text-greentea-contrast, [text-greentea-contrast] { color: color($colors, greentea, contrast) }
+
+.text-graybrow, [text-graybrow] { color: color($colors, graybrow, base) }
+.text-graybrow-base, [text-graybrow-base] { color: color($colors, graybrow, base) }
+.text-graybrow-step, [text-graybrow-step] { color: color($colors, graybrow, step) }
+.text-graybrow-contrast, [text-graybrow-contrast] { color: color($colors, graybrow, contrast) }
+
+.text-cyan, [text-cyan] { color: color($colors, cyan, base) }
+
+.text-xxs, [text-xxs] {font-size:9px}
+.text-xs, [text-xs] {font-size:10px}
+.text-sm, [text-sm] {font-size:12px}
+.text-smd, [text-smd] {font-size:14px}
+.text-md, [text-md] {font-size:16px}
+.text-ml, [text-ml] {font-size:18px}
+.text-lg, [text-lg] {font-size:24px}
+.text-xl, [text-xl] {font-size:38px}
+.text-xxl, [text-xl] {font-size:53px}
+
+.text-underline, [text-underline] {text-decoration: underline}
+.text-nowrap, [text-nowrap] {word-wrap: unset}
+.text-strike, [text-strike] {text-decoration: line-through}
+
+.padding-left-xs, [padding-left-xs] {padding-left:2px}
+.padding-left-sm, [padding-left-sm] {padding-left:5px}
+.padding-left-md, [padding-left-md] {padding-left:10px}
+.padding-left-lg, [padding-left-lg] {padding-left:20px}
+.padding-right-xs, [padding-right-xs] {padding-right:2px}
+.padding-right-sm, [padding-right-sm] {padding-right:5px}
+.padding-right-md, [padding-right-md] {padding-right:10px}
+.padding-right-lg, [padding-right-lg] {padding-right:20px}
+.padding-top-xs, [padding-top-xs] {padding-top:2px}
+.padding-top-sm, [padding-top-sm] {padding-top:5px}
+.padding-top-md, [padding-top-md] {padding-top:10px}
+.padding-top-lg, [padding-top-lg] {padding-top:20px}
+.padding-bottom-xs, [padding-bottom-xs] {padding-bottom:2px}
+.padding-bottom-sm, [padding-bottom-sm] {padding-bottom:5px}
+.padding-bottom-md, [padding-bottom-md] {padding-bottom:10px}
+.padding-bottom-lg, [padding-bottom-lg] {padding-bottom:20px}
+.padding-horizontal-xs, [padding-horizontal-xs] {padding-left:2px;padding-right:2px}
+.padding-horizontal-sm, [padding-horizontal-sm] {padding-left:5px;padding-right:5px}
+.padding-horizontal-md, [padding-horizontal-md] {padding-left:10px;padding-right:10px}
+.padding-horizontal-lg, [padding-horizontal-lg] {padding-left:20px;padding-right:20px}
+.padding-vertical-xs, [padding-vertical-xs] {padding-top:2px;padding-bottom:2px}
+.padding-vertical-sm, [padding-vertical-sm] {padding-top:5px;padding-bottom:5px}
+.padding-vertical-md, [padding-vertical-md] {padding-top:10px;padding-bottom:10px}
+.padding-vertical-lg, [padding-vertical-lg] {padding-top:20px;padding-bottom:20px}
+.padding-xs, [padding-xs] {padding:2px}
+.padding-sm, [padding-sm] {padding:5px}
+.padding-md, [padding-md] {padding:10px}
+.padding-lg, [padding-lg] {padding:20px}
+
+.margin-left-xs, [margin-left-xs] {margin-left:2px}
+.margin-left-sm, [margin-left-sm] {margin-left:5px}
+.margin-left-md, [margin-left-md] {margin-left:10px}
+.margin-left-lg, [margin-left-lg] {margin-left:20px}
+.margin-right-xs, [margin-right-xs] {margin-right:2px}
+.margin-right-sm, [margin-right-sm] {margin-right:5px}
+.margin-right-md, [margin-right-md] {margin-right:10px}
+.margin-right-lg, [margin-right-lg] {margin-right:20px}
+.margin-top-xs, [margin-top-xs] {margin-top:2px}
+.margin-top-sm, [margin-top-sm] {margin-top:5px}
+.margin-top-md, [margin-top-md] {margin-top:10px}
+.margin-top-lg, [margin-top-lg] {margin-top:20px}
+.margin-bottom-xs, [margin-bottom-xs] {margin-bottom:2px}
+.margin-bottom-sm, [margin-bottom-sm] {margin-bottom:5px}
+.margin-bottom-md, [margin-bottom-md] {margin-bottom:10px}
+.margin-bottom-lg, [margin-bottom-lg] {margin-bottom:20px}
+.margin-horizontal-xs, [margin-horizontal-xs] {margin-left:2px;margin-right:2px}
+.margin-horizontal-sm, [margin-horizontal-sm] {margin-left:5px;margin-right:5px}
+.margin-horizontal-md, [margin-horizontal-md] {margin-left:10px;margin-right:10px}
+.margin-horizontal-lg, [margin-horizontal-lg] {margin-left:20px;margin-right:20px}
+.margin-vertical-xs, [margin-vertical-xs] {margin-top:2px;margin-bottom:2px}
+.margin-vertical-sm, [margin-vertical-sm] {margin-top:5px;margin-bottom:5px}
+.margin-vertical-md, [margin-vertical-md] {margin-top:10px;margin-bottom:10px}
+.margin-vertical-lg, [margin-vertical-lg] {margin-top:20px;margin-bottom:20px}
+.margin-xs, [margin-xs] {margin:2px}
+.margin-sm, [margin-sm] {margin:5px}
+.margin-md, [margin-md] {margin:10px}
+.margin-lg, [margin-lg] {margin-left:20px}
+
+.border-top, [border-top] {border-top-width: 1px;border-top-style: solid}
+.border-bottom, [border-bottom] {border-bottom-width: 1px;border-bottom-style: solid}
+.border-left, [border-left] {border-left-width: 1px;border-left-style: solid}
+.border-right, [border-right] {border-right-width: 1px;border-right-style: solid}
+.border-vertical, [border-vertical] {border-left-width: 1px;border-left-style: solid;border-right-width: 1px;border-right-style: solid}
+.border-horizontal, [border-horizontal] {border-top-width: 1px;border-top-style: solid;border-bottom-width: 1px;border-bottom-style: solid}
+
+.border-primary, [border-primary] { border-color: color($colors, primary) }
+.border-secondary, [border-secondary] { border-color: color($colors, secondary) }
+.border-danger, [border-danger] { border-color: color($colors, danger) }
+.border-light, [border-light] { border-color: color($colors, light) }
+.border-white, [border-white] { border-color: color($colors, white) }
+.border-dark, [border-dark] { border-color: color($colors, dark) }
+.border-cyan, [border-cyan] { border-color: color($colors, cyan) }
+.border-gray, [border-gray] { border-color: color($colors, gray) }
+.border-smoke, [border-smoke] { border-color: color($colors, smoke) }
+.border-greentea, [border-greentea] { border-color: color($colors, greentea) }
+
+.line-height-xs, [line-height-xs] {
+    line-height: 1em;
+}
+
+.line-height-sm, [line-height-sm] {
+  line-height: 1.2em;
+}
+
+.line-height-md, [line-height-md] {
+  line-height: 1.5em;
+}
+
+.line-height-lg, [line-height-lg] {
+  line-height: 1.8em;
+}
+
+.line-height-xl, [line-height-xl] {
+  line-height: 2em;
+}
+
+.deactive, [deactive] {
+  img, .text-strike, [text-strike],
+  .text-danger, [text-danger], 
+  .text-secondary, [text-secondary], 
+  .text-orange, [text-orange], 
+  .text-blueksy, [text-blueksy], 
+  .text-cyan, [text-cyan], 
+  .text-facebook, [text-facebook], 
+  .text-graybrow, [text-graybrow], 
+  .text-twitter, [text-twitter]
+  {
+    opacity: 0.5;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+}
+// ::-webkit-scrollbar, *::-webkit-scrollbar
+.no-scroll .scroll-content, .no-scroll .alert-wrapper .alert-message {
+    overflow: hidden !important;
+}
+
+.toolbar-md {
+    min-height: 48px;
+}
+
+.toolbar-title-md {
+    font-size: 1.7rem;
+}
+
+.back-button-icon-md {
+    padding: 0 3px;
+    font-size: 2rem;
+}
+
+.back-button-md {
+    margin: 0 3px;
+}
+
+hr.white, [hr-white] {
+    border-top: 1px solid #fff;
+    border-bottom: none;
+}
+
+[cursor-pointer]
+{
+  cursor: pointer;
+}
+
+[hr-top] {margin: 5px 0 0 0}
+[hr-bottom] {margin: 0 0 5px 0}
+
+.centering-middle, .limit-width
+{
+  max-width: 500px;
+  margin: auto;
+}
+
+.centering-middle
+{
+  position: relative;
+  top: 30%;
+  vertical-align: middle;
+}
+
+.icon-center-all, [icon-center-all]
+{
+  position: relative;
+  vertical-align: middle;
+  top: -1px;
+  bottom: 0;
+}
+
+[position-relative] {
+  position: relative;
+}
+
+[position-absolute] {
+  position: absolute;
+}
+
+[position-fixed] {
+  position: fixed;
+}
+
+.no-padding-all, [no-padding-all]{ padding:0 0 0 0 }
+.no-padding-bottom, [no-padding-bottom]{ padding-bottom: 0 }
+.no-padding-top, [no-padding-top]{ padding-top: 0 }
+.no-padding-left, [no-padding-left]{ padding-left: 0 }
+.no-padding-right, [no-padding-right]{ padding-right: 0 }
+
+.no-margin-all, [no-margin-all]{ margin:0 0 0 0 }
+.no-margin-bottom, [no-margin-bottom]{ margin-bottom: 0 }
+.no-margin-top, [no-margin-top]{ margin-top: 0 }
+.no-margin-left, [no-margin-left]{ margin-left: 0 }
+.no-margin-right, [no-margin-right]{ padding-right: 0 }
+
+.right-xs, [right-xs] {right:2px}
+.right-sm, [right-sm] {right:5px}
+.right-md, [right-md] {right:10px}
+.right-lg, [right-lg] {right:20px}
+.top-xs, [top-xs] {top:2px}
+.top-sm, [top-sm] {top:5px}
+.top-md, [top-md] {top:10px}
+.top-lg, [top-lg] {top:20px}
+.left-xs, [left-xs] {left:2px}
+.left-sm, [left-sm] {left:5px}
+.left-md, [left-md] {left:10px}
+.left-lg, [left-lg] {left:20px}
+.bottom-xs, [bottom-xs] {bottom:2px}
+.bottom-sm, [bottom-sm] {bottom:5px}
+.bottom-md, [bottom-md] {bottom:10px}
+.bottom-lg, [bottom-lg] {bottom:20px}
+
+.textarea-custom-form, [textarea-custom-form]
+{
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+  textarea, textarea.text-input, textarea.text-input-md
+  {
+    padding: 10px;
+    margin-left: 0;
+    min-height: 6.5vh;
+    background-color: #f5f5f5;
+    border: solid 1px #eef;
+  }
+}
+
+ion-toast.announce-toast div.toast-wrapper {
+  top: 50px !important;
+  background: color($colors, cyan);
+
+  .toast-container {
+    .toast-message:before {
+      content: "\f329";
+      font-family: "Ionicons";
+      font-style: normal;
+      font-size: 20px;
+      margin-right: 5px;
+      position: relative;
+      top: 2px;
+    }
+    .toast-message {
+      line-height: 1.5em;
+      font-size: 1em;
+      padding: 12px 10px 14px 10px;
+    }
+  }
+}
+
+ion-toast.warning-toast div.toast-wrapper {
+  background: color($colors, oranges);
+}
+
+ion-toast.danger-toast div.toast-wrapper {
+  background: color($colors, danger);
+}
+
+ion-toast.success-toast div.toast-wrapper {
+  background: color($colors, greentea, base);
+  color: color($colors, greentea, contrast);
+}
+
+ion-toast.info-toast div.toast-wrapper {
+  background: color($colors, facebook);
+}
+
+ion-note.list-master {
+    font-size: 12px
+}
+
+ion-note {
+    .list-master {
+        font-size: 12px
+    }
+}
+
+ion-split-pane {
+  ion-menu {
+    .menu-inner {
+      ion-header {
+        ion-toolbar {
+          .toolbar-content {
+            ion-title {
+              .icon-header-menu {
+                  font-size: 2.4em;
+                  vertical-align: middle;
+              }
+              span.text-header-menu {
+                  display: inline-block;
+                  margin: 0 0 0 10px;
+                  font-size: 1.26rem;
+                  position: relative;
+              }
+            }
+          }
+        }
+      }
+      ion-content {
+        .scroll-content {
+          ion-list {
+            button.item {
+              font-size: 1.4rem;
+                padding-left: 16px;
+              ion-icon {
+                  min-height: 2rem;
+                  font-size: 2.1rem;
+              }
+              .item-inner, .item-md .item-input {
+                  margin-left: 16px;
+              }
+            }
+            button.item:first-child {
+              margin-top: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.container-icon-menu {  
+  color: white;
+
+  ion-icon {
+      font-size: 350%;
+      color: color($colors, graybrow, base);;
+  }
+
+  button {
+      background: transparent;
+      color: color($colors, graybrow, step);;
+      font-weight: 600;
+  }
+}
+
+.icon-badge 
+{
+  top: 0px;
+  right: 0px;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
+  background: color($colors, facebook, base);
+  color: color($colors, facebook, contrast);
+  font-size: 12px;
+  position: absolute;
+  padding: 5px 8px;
+  border-radius: 15px;
+}
+
+.icon-badge.big-icon-badge
+{
+  top: 10px;
+  right: -18px;
+}
+
+.add-scroll-margin-y
+{
+  margin: 45px 0 5px 0
+}
+
+.formal-text-layout,
+[formal-text-layout] 
+{
+  letter-spacing: 0.09em;
+  line-height: 1.5em;
+  font-family: serif;
+}
+
+button.icon-products-click {
+  width: 100%;
+  background: #ffffff;
+}
+
+button.icon-products-click.strike {
+  width:initial;
+  line-height:0;
+  text-align:left;
+}
+
+.container-product-text div {
+  height: 15px;
+  overflow: hidden;
+  line-height: 1.2em;
+}
+
+.badge-fav {
+  top: 0px;
+  right: 0px;
+  background: color($colors, danger, contrast);
+  color: color($colors, danger, base);
+  font-size: 12px;
+  position: absolute;
+  padding: 0;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  z-index: 1;
+}
+
+.badge-fav.active {
+  background: color($colors, danger, base);
+  color: color($colors, danger, contrast);
+}
+
+.badge-fav.big-badge-fav
+{
+    top: 5px;
+    right: 10px;
+}
+
+.badge-fav button {
+  width: 100%;
+  height: inherit;
+  background: none;
+}
+
+.badge-fav ion-icon {
+  font-size: 18px;
+}
+
+.top-notif-badge{
+  left: calc(50% - 15px);
+  top: -2px;
+  padding: 1px 6px;
+  position: absolute;
+  height: auto;
+  font-size: 11px;
+  line-height: 16px;
+  z-index: 1;
+}
+  
+[change-image] {
+  position: absolute;
+  right: 5vw;
+}
+
+.full-width, [full-width]
+{
+  width:100%;
+}
+
+.table, [table] 
+{
+  display: inline-block;
+  &.table-max-width, &[table-max-width] 
+  {
+    width:48.9%;
+    max-width:49%;
+  }
+  &.table-left, &[table-left] 
+  {
+    float: left
+  }
+  
+  &.table-right, &[table-right] 
+  {
+    float: right
+  }
+}
+
+.external-logo
+{
+  background-color: color($colors, light);
+  background-image: url('http://bumdesapp.com/cdn/data_icon/external-logos.png');
+  background-size: 300%;
+  width: 80px;
+  height: 40px;
+  &.logo-bank_bri
+  {
+    background-position: -80px -120px;
+  }
+  &.logo-bank_wuri
+  {
+    background-position: -80px -280px;
+  }
+  &.logo-bank_bjb
+  {
+    background-position: 0 0;
+  }
+  &.logo-bank_bca
+  {
+    background-position: -80px 0px;
+  }
+  &.logo-bca_klikpay
+  {
+    background-position: 0 -40px;
+  }
+  &.logo-bank_mandiri
+  {
+    background-position: -80px -37px;
+  }
+  &.logo-mandiri_clickpay
+  {
+    background-position: 0 -80px;
+  }
+  &.logo-mandiri_ecash
+  {
+    background-position:0 -120px;
+  }
+  &.logo-indomaret
+  {
+    background-position: 0 -280px;
+  }
+  &.logo-buku_saku {
+    background-position: -80px -200px;
+  }
+  &.logo-jne
+  {
+    background-position: 80px  0;
+  }
+  &.logo-tiki
+  {
+    background-position: 80px -40px;
+  }
+  &.logo-jnt
+  {
+    background-position: 80px 42px;
+  }
+  &.logo-pos
+  {
+    background-position: 80px -80px;
+  }
+  &.logo-sicepat
+  {
+    background-position: 80px 120px;
+  }
+  &.logo-wahana
+  {
+    background-position: 80px 160px;
+  }
+}
