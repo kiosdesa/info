@@ -1,7 +1,0 @@
-<ion-tabs selectedIndex="0" #homeTab>
-  <ion-tab tabIcon="ios-home" [root]="tab1Root" [rootParams]="_currentParam" (ionChange)="transition($event)" (ionSelect)="loadCart()"></ion-tab>
-  <ion-tab tabIcon="ios-heart" [root]="tab2Root" [rootParams]="_currentParam" (ionChange)="transition($event)" (ionSelect)="loadCart()"></ion-tab>
-  <ion-tab tabIcon="ios-cart" [root]="tab3Root" [tabBadge]="_cartCount > 0 ? _cartCount : null" tabBadgeStyle="facebook" [rootParams]="_currentParam" (ionChange)="transition($event)" (ionSelect)="loadCart(2)"></ion-tab>
-  <ion-tab tabIcon="ios-contact" [root]="tab4Root" [rootParams]="_currentParam" (ionChange)="transition($event)" (ionSelect)="loadCart()"></ion-tab>
-  <ion-tab tabIcon="ios-more" (ionSelect)="openMenu()"></ion-tab>
-</ion-tabs>

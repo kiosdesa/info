@@ -1,8 +1,0 @@
-{
-  "name": "shop-bumdesku",
-  "app_id": "shopbumdesku01032018to2019",
-  "type": "ionic-angular",
-  "integrations": {
-    "cordova": {}
-  }
-}
