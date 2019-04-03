@@ -1,6 +1,6 @@
-# KIOSDESA.COM
+![kiosdesa logo](https://i.pinimg.com/564x/c4/17/ad/c417adcccc9ac7b572492ca2bdef46d1.jpg)
 
-![Kiosdesa](https://www.kiosdesa.com/logo-kiosdesa.jpg)
+# KIOSDESA.COM
 
 ### Informasi Platform
 - Domain
@@ -17,6 +17,8 @@
   - Database Platform: PostgreSQL
   - Method Core Framework: OOP + CSLM (Controller, Service, Library, Modular)
 - Client Side
+  - Cek Repository Mobile Apps:
+  **[Tutorial](https://github.com/sofandani/kiosdesa-mobile/blob/master/README.md)** | **[Source Code](https://github.com/sofandani/kiosdesa-mobile/blob/master)**
   - Public Apps
     - Engine Apps Language: TypeScript
     - Framework: IONIC
@@ -38,3 +40,11 @@
 - Owner: (0232) 871502
 - Komisioner: [dickyahmed7@gmail.com](dickyahmed7@gmail.com)
 - Konsultan IT: [sofandani@gmail.com](mailto:sofandani@gmail.com)
+
+  
+<br/>
+<br/>
+<br/>
+
+## Terimakasih
+&copy; kiosdesa.com | 2018 - 2019
