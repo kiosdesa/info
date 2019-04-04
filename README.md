@@ -18,9 +18,9 @@ Saat ini kami melakukan percepatan progres penyelesaian development project deng
       <br/>_(private access)_
 - Client Side
   - Cek Repository Mobile Apps:
-    - Tutorial | **[ "Lihat Halaman" &raquo;](https://github.com/sofandani/kiosdesa-mobile/blob/master/README.md)**
+    - Tutorial | **[ "Lihat Halaman" &raquo;&raquo;](https://github.com/sofandani/kiosdesa-mobile/blob/master/README.md)**
       <br/>_(private access)_
-    - Source Code | **[ "Lihat Halaman" &raquo;](https://github.com/sofandani/kiosdesa-mobile)**
+    - Source Code | **[ "Lihat Halaman" &raquo;&raquo;](https://github.com/sofandani/kiosdesa-mobile)**
       <br/>_(private access)_
   - Public Apps
     - Type Apps: Android Mobile
