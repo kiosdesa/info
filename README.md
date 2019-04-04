@@ -12,9 +12,9 @@ Saat ini kami melakukan percepatan progres penyelesaian development project deng
   - Controlling: https://sofandani.com
 - Server Side
   - Cek Repository Web Service:
-    - Tutorial | **["Lihat Halaman" &raquo;](https://github.com/sofandani/api2/blob/master/README.md)**
+    - Tutorial | **["Lihat Halaman" &raquo;&raquo;](https://github.com/sofandani/api2/blob/master/README.md)**
       <br/>_(private access)_
-    - Source Code | **["Lihat Halaman" &raquo;](https://github.com/sofandani/api2)**
+    - Source Code | **["Lihat Halaman" &raquo;&raquo;](https://github.com/sofandani/api2)**
       <br/>_(private access)_
 - Client Side
   - Cek Repository Mobile Apps:
