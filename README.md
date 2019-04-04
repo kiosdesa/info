@@ -8,12 +8,12 @@
   - Controlling: https://sofandani.com
 - Server Side
   - Cek Repository Web Service:
-    - **["TUTORIAL" &raquo;](https://github.com/sofandani/api2/blob/master/README.md)**
-    - **["SOURCE CODE" &raquo;](https://github.com/sofandani/api2)**
+    - Tutorial: **["Lihat Halaman" &raquo;](https://github.com/sofandani/api2/blob/master/README.md)**
+    - Source Code: **["Lihat Halaman" &raquo;](https://github.com/sofandani/api2)**
 - Client Side
   - Cek Repository Mobile Apps:
-    - **["TUTORIAL" &raquo;](https://github.com/sofandani/kiosdesa-mobile/blob/master/README.md)**
-    - **["SOURCE CODE" &raquo;](https://github.com/sofandani/kiosdesa-mobile)**
+    - Tutorial: **["Lihat Halaman" &raquo;](https://github.com/sofandani/kiosdesa-mobile/blob/master/README.md)**
+    - Source Code: **["Lihat Halaman" &raquo;](https://github.com/sofandani/kiosdesa-mobile)**
   - Public Apps
     - Type Apps: Android Mobile
   - Company Apps
