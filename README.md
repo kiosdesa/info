@@ -31,9 +31,9 @@ Saat ini kami melakukan percepatan progres penyelesaian development project deng
 
 ### Informasi Kontak
 - Official Instagram: [@kios_desa](https://instagram.com/kios_desa)
-- Owner: (0232) 871502
-- Komisioner: [dickyahmed7@gmail.com](mailto:dickyahmed7@gmail.com)
-- Konsultan IT: [sofandani@gmail.com](mailto:sofandani@gmail.com)
+- Official Phone: (0232) 871502
+- Email Komisioner: [dickyahmed7@gmail.com](mailto:dickyahmed7@gmail.com)
+- Email Konsultan IT: [sofandani@gmail.com](mailto:sofandani@gmail.com)
 
   
 <br/>
