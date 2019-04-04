@@ -1,6 +1,6 @@
 ![kiosdesa logo](https://i.pinimg.com/564x/c4/17/ad/c417adcccc9ac7b572492ca2bdef46d1.jpg)
 
-# KIOSDESA.COM
+# KIOSDESA.COM (Rilis Desember 2019)
 
 ### Informasi Platform
 - Domain
