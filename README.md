@@ -26,6 +26,7 @@
 - Assistant & Programmer: Fikri Rizaldi
 
 ### Informasi Kontak
+- Official Instagram: [@kios_desa](https://instagram.com/kios_desa)
 - Owner: (0232) 871502
 - Komisioner: [dickyahmed7@gmail.com](mailto:dickyahmed7@gmail.com)
 - Konsultan IT: [sofandani@gmail.com](mailto:sofandani@gmail.com)
