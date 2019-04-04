@@ -31,7 +31,11 @@ Saat ini kami melakukan percepatan progres penyelesaian development project deng
 - Owner: Dinas Pemberdayaan Masyarakat & Desa
 - Trustee & Manager: Dicky Ahmed
 - Founder & Full-Stack: Ofan Sofandani
+  <br />
+  [Github @sofandani](https://github.com/sofandani)
 - Assistant & Programmer: Fikri Rizaldi
+  <br />
+  [Github @kantungichi](https://github.com/kantungichi)
 
 ### Informasi Kontak
 - Official Instagram: [@kios_desa](https://instagram.com/kios_desa)
