@@ -5,34 +5,19 @@
 ### Informasi Platform
 - Domain
   - Primary: https://www.kiosdesa.com
-  - System: https://bumdesapp.com
   - Controlling: https://sofandani.com
-- Server Capacity
-  - Storage: 15GB
-  - Postgre: 15GB
-  - Bandwidth: ~
-  - RAM: 1GB
 - Server Side
   - Cek Repository Web Service:
     - **["TUTORIAL" &raquo;](https://github.com/sofandani/api2/blob/master/README.md)**
     - **["SOURCE CODE" &raquo;](https://github.com/sofandani/api2)**
-  - Engine Porgramming Language: PHP 5++
-  - Database Platform: PostgreSQL
-  - Method Core Framework: OOP + CSLM (Controller, Service, Library, Modular)
 - Client Side
   - Cek Repository Mobile Apps:
     - **["TUTORIAL" &raquo;](https://github.com/sofandani/kiosdesa-mobile/blob/master/README.md)**
     - **["SOURCE CODE" &raquo;](https://github.com/sofandani/kiosdesa-mobile)**
   - Public Apps
-    - Engine Apps Language: TypeScript
-    - Framework: IONIC
-    - Generator: NodeJS
-    - Type Apps: Mobile
+    - Type Apps: Android Mobile
   - Company Apps
-    - Engine Apps language: TypeScript
-    - Framework: IONIC
-    - Generator: ElectronJS
-    - Type Apps: Desktop
+    - Type Apps: Windows & OSX Desktop
     
 ### Informasi Author
 - Owner: Dinas Pemberdayaan Masyarakat & Desa
