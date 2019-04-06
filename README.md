@@ -38,6 +38,7 @@ Saat ini kami melakukan percepatan progres penyelesaian development project deng
   Github - [@kantungichi](https://github.com/kantungichi)
 
 ### Informasi Kontak
+- Official Slack Kiosdesa: [dpmdkng.slack.com](https://dpmdkng.slack.com)
 - Official Instagram: [@kios_desa](https://instagram.com/kios_desa)
 - Official Phone: (0232) 871502
 - Email Komisioner: [dickyahmed7@gmail.com](mailto:dickyahmed7@gmail.com)
