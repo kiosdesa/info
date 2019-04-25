@@ -29,7 +29,11 @@ Saat ini kami melakukan percepatan progres penyelesaian development project deng
     
 ### Informasi Author & Team
 - Owner: Dinas Pemberdayaan Masyarakat & Desa
+  <br />
+  Web (official) - [dpmd.kuningankab.go.id](https://dpmd.kuningankab.go.id/)
 - Trustee & Manager: Dicky Ahmed
+  <br />
+  Profile - [@ahmed.dicky](https://www.facebook.com/ahmed.dicky)
 - Founder & Full-Stack: Ofan Sofandani
   <br />
   Github - [@sofandani](https://github.com/sofandani)
