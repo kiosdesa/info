@@ -9,7 +9,7 @@ Saat ini kami melakukan percepatan progres penyelesaian development project deng
 ### Informasi Platform
 - Domain
   - Primary: https://www.kiosdesa.com
-  - Controlling: https://sofandani.com
+  - Controlling: https://ofan.kiosdesa.com
 - Server Side
   - Cek Repository Web Service:
     - Tutorial | **["Lihat Halaman" &raquo;&raquo;](https://github.com/kiosdesacom/v2/blob/master/README.md)**
@@ -45,6 +45,7 @@ Saat ini kami melakukan percepatan progres penyelesaian development project deng
 - Official Slack Kiosdesa: [dpmdkng.slack.com](https://dpmdkng.slack.com)
   <br/>_(private access)_
 - Official Instagram: [@kios_desa](https://instagram.com/kios_desa)
+- Official Google PlayStore: [PT. Merdesa Abadi Sentosa](https://play.google.com/store/apps/developer?id=Merdesa+Abadi+Sentosa)
 - Official Phone: (0232) 871502
 - Email Komisioner: [dickyahmed7@gmail.com](mailto:dickyahmed7@gmail.com)
 - Email Konsultan IT: [sofandani@gmail.com](mailto:sofandani@gmail.com)
