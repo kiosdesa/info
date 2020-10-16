@@ -37,9 +37,9 @@ Saat ini kami melakukan percepatan progres penyelesaian development project deng
 - Founder & Full-Stack: Ofan Sofandani
   <br />
   Github - [@sofandani](https://github.com/sofandani)
-- Assistant & Programmer: Fikri Rizaldi
-  <br />
-  Github - [@kantungichi](https://github.com/kantungichi)
+- Team:
+  - Aldi | Github - [@aldinurfarizha](https://github.com/aldinurfarizha)
+  - Fikri | Github - [@kantungichi](https://github.com/kantungichi)
 
 ### Informasi Kontak
 - Official Slack Kiosdesa: [dpmdkng.slack.com](https://dpmdkng.slack.com)
@@ -56,4 +56,4 @@ Saat ini kami melakukan percepatan progres penyelesaian development project deng
 <br/>
 
 ## Terimakasih
-&copy; kiosdesa.com | 2018 - 2019
+&copy; kiosdesa.com | 2018 - 2020
