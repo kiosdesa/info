@@ -9,7 +9,7 @@ Saat ini kami melakukan percepatan progres penyelesaian development project deng
 ### Informasi Platform
 - Domain
   - Primary: https://www.kiosdesa.com
-  - Controlling: https://ofan.kiosdesa.com
+  - Controlling: https://sofandani.com
 - Server Side
   - Cek Repository Web Service:
     - Tutorial | **["Lihat Halaman" &raquo;&raquo;](https://github.com/kiosdesacom/v2/blob/master/README.md)**
