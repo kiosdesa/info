@@ -7,7 +7,7 @@ Kiosdesa.com adalah platform perdagangan dan pengembangan usaha ekonomi kerakyat
 Saat ini kami melakukan percepatan progres penyelesaian development project dengan penambahan team baru dan bertempat di kantor baru **[lihat kantor kami di google map](https://goo.gl/maps/4gt3oT9uzXp)**
 
 ### Informasi Platform
-- Primary: https://www.kiosdesa.com
+- Primary: https://www.kiosdesa.id
 - Cek Repository Web Service:
   - Tutorial | **["Lihat Halaman" &raquo;&raquo;](https://github.com/kiosdesacom/v2/blob/master/README.md)**
     <br/>_(private access)_
